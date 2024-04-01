@@ -1,14 +1,13 @@
 #include "Array.h"
-
 #include <cassert>
 #include <iostream>
 #include <stdexcept> // for std::out_of_range exception
 
-explicit Array::Array(size_t s) : size(s), data(new int[s]) {}
 Array::Array(const Array& other) : size(other.size), data(new int[other.size])
 {
 	std::copy(other.data, other.data + size, data);
 }
+
 Array::~Array()
 {
 	delete[] data; // Release memory
@@ -42,7 +41,7 @@ void Array::fill(int value)
 	std::fill(data, data + size, value);
 }
 
-friend void Array::swap(Array& first, Array& second) noexcept
+void swap(Array& first, Array& second) noexcept
 {
 	using std::swap;
 	swap(first.data, second.data);

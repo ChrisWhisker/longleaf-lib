@@ -23,8 +23,10 @@ private:
 
 public:
 	// Constructors
-	explicit Array(size_t s) : size(s), data(new int[s]);
-	Array(const Array& other) : size(other.size), data(new int[other.size]);
+	explicit Array(size_t arraySize) : size(arraySize), data(new int[arraySize]) {}
+
+	Array(const Array& other);
+
 	// Destructor
 	~Array();
 
@@ -44,7 +46,7 @@ public:
 	void fill(int value);
 
 	// Swap contents with another array
-	friend void swap(Array& first, Array& second);
+	friend void swap(Array& first, Array& second) noexcept;
 
 	// Resize the array
 	void resize(size_t newSize);
