@@ -20,7 +20,8 @@ public:
 	// The main function that implements QuickSort
 	void quickSort(int arr[], int low, int high);
 
-	void printArray(int arr[], int size) {
+	void printArray(int arr[], int size)
+	{
 		for (int i = 0; i < size; i++)
 			std::cout << arr[i] << " ";
 		std::cout << std::endl;

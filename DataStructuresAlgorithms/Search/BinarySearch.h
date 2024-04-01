@@ -1,11 +1,18 @@
 #pragma once
 
-// Quick Sort is known for its efficient sorting algorithm that follows the Divide and Conquer strategy.
-// It works by selecting a 'pivot' element from the array and partitioning the other elements into two
-// sub-arrays according to whether they are less than or greater than the pivot. The sub-arrays are then
-// recursively sorted. Quick Sort is generally fast in practice and is widely used for sorting large datasets.
-// However, it may not be suitable for small datasets or datasets with many duplicate elements,
-// as it can degrade to O(n^2) time complexity in the worst case.
+/*
+	Quick Sort:
+	Quick Sort efficiently sorts large datasets by recursively partitioning elements based on a chosen pivot.
+	It has an average time complexity of O(n log n) and is best suited for large datasets.
+
+	Use QuickSort:
+	- When sorting large datasets efficiently is required.
+	- When average-case time complexity is more important.
+
+	Avoid QuickSort:
+	- When worst-case time complexity is critical.
+	- When memory usage needs to be minimized.
+*/
 class BinarySearch
 {
 public:
