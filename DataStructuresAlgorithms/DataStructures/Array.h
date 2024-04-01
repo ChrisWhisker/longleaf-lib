@@ -2,6 +2,19 @@
 
 using std::size_t;
 
+/**
+ * @brief A dynamic array implementation in C++ using raw pointers.
+ *
+ * The Array class provides functionality similar to std::vector, allowing
+ * dynamic resizing, element access, insertion, removal, and other common
+ * operations on a sequence of integers.
+ *
+ * This class can be used in situations where a dynamically resizable array
+ * is needed, but the overhead of std::vector or other standard containers
+ * is undesired or not available (e.g., in environments with restricted
+ * standard library support). Manual memory management is required when
+ * using this class.
+ */
 class Array
 {
 private:
@@ -9,23 +22,20 @@ private:
 	size_t size; // size of the array
 
 public:
-	// Constructor
-	Array(size_t s);
-
+	// Constructors
+	explicit Array(size_t s) : size(s), data(new int[s]);
+	Array(const Array& other) : size(other.size), data(new int[other.size]);
 	// Destructor
 	~Array();
 
-	// Copy constructor
-	Array(const Array& other);
-
 	// Assignment operator
-	Array& operator=(const Array& other);
+	Array& operator=(Array other);
 
 	// Get the size of the array
 	size_t getSize() const;
 
 	// Access element at index (read-only)
-	int operator[](size_t index) const;
+	const int& operator[](size_t index) const;
 
 	// Access element at index (read-write)
 	int& operator[](size_t index);
@@ -34,7 +44,7 @@ public:
 	void fill(int value);
 
 	// Swap contents with another array
-	void swap(Array& other);
+	friend void swap(Array& first, Array& second);
 
 	// Resize the array
 	void resize(size_t newSize);

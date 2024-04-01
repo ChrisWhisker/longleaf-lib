@@ -4,57 +4,26 @@
 #include <iostream>
 #include <stdexcept> // for std::out_of_range exception
 
-Array::Array(size_t s) : size(s)
+explicit Array::Array(size_t s) : size(s), data(new int[s]) {}
+Array::Array(const Array& other) : size(other.size), data(new int[other.size])
 {
-	if (size > 0)
-		data = new int[size]; // allocate memory for the array
-	else
-		data = nullptr; // empty array
+	std::copy(other.data, other.data + size, data);
 }
-
 Array::~Array()
 {
-	delete[] data; // release dynamically allocated memory
+	delete[] data; // Release memory
 }
 
-Array::Array(const Array& other) : size(other.size)
+Array& Array::operator=(Array other)
 {
-	if (size > 0)
-	{
-		data = new int[size];                           // allocate memory for the copy
-		std::copy(other.data, other.data + size, data); // copy elements
-	}
-	else
-		data = nullptr; // empty array
-}
-
-Array& Array::operator=(const Array& other)
-{
-	if (this != &other)
-	{ // self-assignment check
-		// Release existing resources
-		delete[] data;
-
-		// Copy size
-		size = other.size;
-
-		if (size > 0)
-		{
-			data = new int[size];                           // allocate memory for the copy
-			std::copy(other.data, other.data + size, data); // copy elements
-		}
-		else
-			data = nullptr; // empty array
-	}
+	// Use copy-swap idiom for assignment operator to ensure strong exception safety
+	swap(*this, other);
 	return *this;
 }
 
-size_t Array::getSize() const
-{
-	return size;
-}
+size_t Array::getSize() const { return size; }
 
-int Array::operator[](size_t index) const
+const int& Array::operator[](size_t index) const
 {
 	if (index >= size)
 		throw std::out_of_range("Index out of range");
@@ -70,44 +39,35 @@ int& Array::operator[](size_t index)
 
 void Array::fill(int value)
 {
-	for (size_t i = 0; i < size; ++i)
-		data[i] = value;
+	std::fill(data, data + size, value);
 }
 
-void Array::swap(Array& other)
+friend void Array::swap(Array& first, Array& second) noexcept
 {
-	std::swap(data, other.data);
-	std::swap(size, other.size);
+	using std::swap;
+	swap(first.data, second.data);
+	swap(first.size, second.size);
 }
 
 void Array::resize(size_t newSize)
 {
-	if (newSize == size)
-		return; // no change needed
-	int* newData = new int[newSize]; // allocate new memory
-	const size_t minSize = std::min(size, newSize);
-	std::copy(data, data + minSize, newData); // copy existing elements
-	delete[] data;                            // deallocate old memory
-	data = newData;                           // update pointer
-	size = newSize;                           // update size
+	int* newData = new int[newSize];
+	std::copy(data, data + std::min(size, newSize), newData);
+	delete[] data; // Release old memory
+	data = newData;
+	size = newSize;
 }
 
 void Array::clear()
 {
-	delete[] data;
-	data = nullptr;
+	delete[] data;  // Release memory
+	data = nullptr; // Reset pointer
 	size = 0;
 }
 
-bool Array::isEmpty() const
-{
-	return size == 0;
-}
+bool Array::isEmpty() const { return size == 0; }
 
-int* Array::getData() const
-{
-	return data;
-}
+int* Array::getData() const { return data; }
 
 void Array::reverse()
 {
@@ -123,32 +83,24 @@ void Array::reverse()
 
 int Array::find(int value) const
 {
-	for (size_t i = 0; i < size; ++i)
-	{
-		if (data[i] == value)
-			return static_cast<int>(i);
-	}
-	return -1; // not found
+	auto it = std::find(data, data + size, value);
+	if (it == data + size)
+		return -1;
+	else
+		return static_cast<int>(it - data);
 }
 
 size_t Array::count(int value) const
 {
-	size_t count = 0;
-	for (size_t i = 0; i < size; ++i)
-	{
-		if (data[i] == value)
-			++count;
-	}
-	return count;
+	return std::count(data, data + size, value);
 }
 
 void Array::remove(int value)
 {
-	int index = find(value);
-	if (index != -1)
+	auto it = std::find(data, data + size, value);
+	if (it != data + size)
 	{
-		for (size_t i = static_cast<size_t>(index); i < size - 1; ++i)
-			data[i] = data[i + 1];
+		std::copy(it + 1, data + size, it);
 		resize(size - 1);
 	}
 }
@@ -157,7 +109,6 @@ void Array::insert(size_t index, int value)
 {
 	assert(index <= size); // ensure index is valid
 	resize(size + 1);      // increase size by 1
-	for (size_t i = size - 1; i > index; --i)
-		data[i] = data[i - 1];
+	std::copy_backward(data + index, data + size - 1, data + size);
 	data[index] = value;
 }
