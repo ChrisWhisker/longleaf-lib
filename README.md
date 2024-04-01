@@ -1,4 +1,6 @@
-# C++ Data Structures & Algorithms Library
+![100 (1)](https://github.com/ChrisWhisker/longleaf-lib/assets/6521800/ce065792-c6eb-4644-a54c-4e7e25c94f47)
+
+# LongLeaf Library: C++ Data Structures & Algorithms
 
 This repository serves as a demonstration of implementations of common data structures and algorithms in C++. The primary focus is on memory efficiency and reducing dependencies on the C++ Standard Template Library (STL). By providing efficient solutions without relying heavily on the STL, this repository aims to offer insights into building robust and resource-conscious software systems.
 
