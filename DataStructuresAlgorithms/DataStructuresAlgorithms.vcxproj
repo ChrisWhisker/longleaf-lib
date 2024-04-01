@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DataStructures/Array.cpp" />
     <ClCompile Include="ArrayUtils.cpp" />
     <ClCompile Include="Sort/MergeSort.cpp" />
     <ClCompile Include="Search/BinarySearch.cpp" />
@@ -134,6 +135,7 @@
     <ClCompile Include="Sort/QuickSort.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DataStructures/Array.h" />
     <ClInclude Include="ArrayUtils.h" />
     <ClInclude Include="Sort/MergeSort.h" />
     <ClInclude Include="Search/BinarySearch.h" />
