@@ -1,73 +1,75 @@
 #include "MergeSort.h"
 #include <iostream>
 
-void MergeSort::merge(int arr[], int leftIdx, int middleIdx, int rightIdx)
+void MergeSort::merge(int arr[], int leftIndex, int middleIndex, int rightIndex)
 {
-	int i, j, k;
-	int leftSize = middleIdx - leftIdx + 1;
-	int rightSize = rightIdx - middleIdx;
+	// Validate input parameters
+	if (arr == nullptr || leftIndex < 0 || middleIndex < 0 || rightIndex < 0 || leftIndex >= rightIndex)
+	{
+		// Handle invalid input parameters
+		return;
+	}
+
+	// Calculate sizes of subarrays
+	int leftSize = middleIndex - leftIndex + 1;
+	int rightSize = rightIndex - middleIndex;
 
 	// Create temporary arrays using dynamic memory allocation
 	int* leftArray = new int[leftSize];
 	int* rightArray = new int[rightSize];
 
-	// Copy data to temporary arrays
-	for (i = 0; i < leftSize; i++)
-		leftArray[i] = arr[leftIdx + i]; // Copy elements from arr to the left subarray
-	for (j = 0; j < rightSize; j++)
-		rightArray[j] = arr[middleIdx + 1 + j]; // Copy elements from arr to the right subarray
+	// Check if memory allocation was successful
+	if (leftArray == nullptr || rightArray == nullptr)
+	{
+		// Handle memory allocation failure
+		delete[] leftArray;
+		delete[] rightArray;
+		return;
+	}
 
-	// Merge the temporary arrays back into arr[leftIdx..rightIdx]
-	i = 0;       // Initial index of the first subarray
-	j = 0;       // Initial index of the second subarray
-	k = leftIdx; // Initial index of the merged subarray
+	// Copy data to temporary arrays
+	for (int i = 0; i < leftSize; i++)
+		leftArray[i] = arr[leftIndex + i];
+	for (int j = 0; j < rightSize; j++)
+		rightArray[j] = arr[middleIndex + 1 + j];
+
+	// Merge the temporary arrays back into arr[leftIndex..rightIndex]
+	int i = 0, j = 0, k = leftIndex;
 	while (i < leftSize && j < rightSize)
 	{
 		if (leftArray[i] <= rightArray[j])
-		{
-			arr[k] = leftArray[i]; // Put smaller element from leftArray[] into arr
-			i++;
-		}
+			arr[k++] = leftArray[i++];
 		else
-		{
-			arr[k] = rightArray[j]; // Put smaller element from rightArray[] into arr
-			j++;
-		}
-		k++;
+			arr[k++] = rightArray[j++];
 	}
 
-	// Copy the remaining elements of leftArray[], if there are any
+	// Copy remaining elements of leftArray[], if any
 	while (i < leftSize)
-	{
-		arr[k] = leftArray[i]; // Copy remaining elements of leftArray[] into arr
-		i++;
-		k++;
-	}
+		arr[k++] = leftArray[i++];
 
-	// Copy the remaining elements of rightArray[], if there are any
+	// Copy remaining elements of rightArray[], if any
 	while (j < rightSize)
-	{
-		arr[k] = rightArray[j]; // Copy remaining elements of rightArray[] into arr
-		j++;
-		k++;
-	}
+		arr[k++] = rightArray[j++];
 
-	// Free dynamically allocated memory to prevent memory leaks
-	delete[] leftArray;  // Deallocate memory used for the left temporary array
-	delete[] rightArray; // Deallocate memory used for the right temporary array
+	// Free dynamically allocated memory
+	delete[] leftArray;
+	delete[] rightArray;
 }
 
-void MergeSort::mergeSort(int arr[], int leftIdx, int rightIdx)
+void MergeSort::mergeSort(int arr[], int leftIndex, int rightIndex)
 {
-	if (leftIdx < rightIdx)
+	// Validate input parameters
+	if (arr == nullptr || leftIndex < 0 || rightIndex < 0 || leftIndex >= rightIndex)
 	{
-		int middleIdx = leftIdx + (rightIdx - leftIdx) / 2; // Calculate the middle index to divide the array into halves
+		// Handle invalid input parameters
+		return;
+	}
 
-		// Recursively sort the first and second halves
-		mergeSort(arr, leftIdx, middleIdx);
-		mergeSort(arr, middleIdx + 1, rightIdx);
-
-		// Merge the sorted halves
-		merge(arr, leftIdx, middleIdx, rightIdx);
+	if (leftIndex < rightIndex)
+	{
+		int middleIndex = leftIndex + (rightIndex - leftIndex) / 2;
+		mergeSort(arr, leftIndex, middleIndex);
+		mergeSort(arr, middleIndex + 1, rightIndex);
+		merge(arr, leftIndex, middleIndex, rightIndex);
 	}
 }

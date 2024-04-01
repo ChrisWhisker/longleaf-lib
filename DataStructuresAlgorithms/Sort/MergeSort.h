@@ -16,12 +16,12 @@
 class MergeSort
 {
 public:
-	// Main function that sorts arr[leftIdx..rightIdx] using merge()
-	void mergeSort(int arr[], int leftIdx, int rightIdx);
+	// Main function that sorts arr[leftIndex..rightIndex] using merge()
+	void mergeSort(int arr[], int leftIndex, int rightIndex);
 
 private:
 	// Function to merge two subarrays of arr[]
-	// First subarray is arr[leftIdx..middleIdx]
-	// Second subarray is arr[middleIdx+1..rightIdx]
-	void merge(int arr[], int leftIdx, int middleIdx, int rightIdx);
+	// First subarray is arr[leftIndex..middleIndex]
+	// Second subarray is arr[middleIndex+1..rightIndex]
+	void merge(int arr[], int leftIndex, int middleIndex, int rightIndex);
 };
