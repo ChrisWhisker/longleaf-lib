@@ -12,13 +12,11 @@ Array::Array(size_t s) : size(s)
 		data = nullptr; // empty array
 }
 
-// Destructor
 Array::~Array()
 {
 	delete[] data; // release dynamically allocated memory
 }
 
-// Copy constructor
 Array::Array(const Array& other) : size(other.size)
 {
 	if (size > 0)
@@ -30,7 +28,6 @@ Array::Array(const Array& other) : size(other.size)
 		data = nullptr; // empty array
 }
 
-// Assignment operator
 Array& Array::operator=(const Array& other)
 {
 	if (this != &other)
@@ -52,13 +49,11 @@ Array& Array::operator=(const Array& other)
 	return *this;
 }
 
-// Get the size of the array
 size_t Array::getSize() const
 {
 	return size;
 }
 
-// Access element at index (read-only)
 int Array::operator[](size_t index) const
 {
 	if (index >= size)
@@ -66,7 +61,6 @@ int Array::operator[](size_t index) const
 	return data[index];
 }
 
-// Access element at index (read-write)
 int& Array::operator[](size_t index)
 {
 	if (index >= size)
@@ -74,21 +68,18 @@ int& Array::operator[](size_t index)
 	return data[index];
 }
 
-// Fill the array with a given value
 void Array::fill(int value)
 {
 	for (size_t i = 0; i < size; ++i)
 		data[i] = value;
 }
 
-// Swap contents with another array
 void Array::swap(Array& other)
 {
 	std::swap(data, other.data);
 	std::swap(size, other.size);
 }
 
-// Resize the array
 void Array::resize(size_t newSize)
 {
 	if (newSize == size)
@@ -101,7 +92,6 @@ void Array::resize(size_t newSize)
 	size = newSize;                           // update size
 }
 
-// Clear the contents of the array (set size to 0)
 void Array::clear()
 {
 	delete[] data;
@@ -109,19 +99,16 @@ void Array::clear()
 	size = 0;
 }
 
-// Check if the array is empty
 bool Array::isEmpty() const
 {
 	return size == 0;
 }
 
-// Get a pointer to the underlying data (use with caution)
 int* Array::getData() const
 {
 	return data;
 }
 
-// Reverse the elements of the array
 void Array::reverse()
 {
 	size_t left = 0;
@@ -134,8 +121,6 @@ void Array::reverse()
 	}
 }
 
-// Find the index of the first occurrence of a value
-// Returns -1 if not found
 int Array::find(int value) const
 {
 	for (size_t i = 0; i < size; ++i)
@@ -146,7 +131,6 @@ int Array::find(int value) const
 	return -1; // not found
 }
 
-// Count the occurrences of a value in the array
 size_t Array::count(int value) const
 {
 	size_t count = 0;
@@ -158,7 +142,6 @@ size_t Array::count(int value) const
 	return count;
 }
 
-// Remove the first occurrence of a value from the array
 void Array::remove(int value)
 {
 	int index = find(value);
@@ -170,7 +153,6 @@ void Array::remove(int value)
 	}
 }
 
-// Insert a value at a specified index
 void Array::insert(size_t index, int value)
 {
 	assert(index <= size); // ensure index is valid
