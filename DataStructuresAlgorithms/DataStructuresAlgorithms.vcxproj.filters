@@ -24,12 +24,24 @@
     <ClCompile Include="Search/BinarySearch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Sort/MergeSort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ArrayUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sort/QuickSort.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Search/BinarySearch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sort/MergeSort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
