@@ -21,9 +21,15 @@
     <ClCompile Include="Sort/QuickSort.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Search/BinarySearch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sort/QuickSort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Search/BinarySearch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

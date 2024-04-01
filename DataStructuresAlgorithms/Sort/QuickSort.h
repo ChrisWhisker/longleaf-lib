@@ -14,7 +14,6 @@
 	- When worst-case time complexity is critical.
 	- When memory usage needs to be minimized.
 */
-
 class QuickSort
 {
 public:

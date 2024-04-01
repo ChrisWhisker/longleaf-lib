@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Search/BinarySearch.h"
 
 int main()
 {
@@ -13,4 +14,18 @@ int main()
 	//std::cout << "Sorted array: ";
 	//qs.printArray(arr, n);
 	//return 0;
+
+	// Test Binary Search
+	int arr[] = { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 };
+	int size = sizeof(arr) / sizeof(arr[0]); // Calculate size of array
+	int target = 12;
+
+	BinarySearch bs;
+	int result = bs.binarySearch(arr, size, target);
+	if (result != -1)
+		std::cout << "Element found at index: " << result << std::endl;
+	else
+		std::cout << "Element not found" << std::endl;
+
+	return 0;
 }
