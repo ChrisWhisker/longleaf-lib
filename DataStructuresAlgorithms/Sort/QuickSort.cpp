@@ -11,7 +11,7 @@ void QuickSort::swap(int* a, int* b)
 int QuickSort::partition(int arr[], int low, int high)
 {
 	int pivot = arr[high]; // Choose the last element as pivot
-	int i = (low - 1); // Index of smaller element
+	int i = low - 1; // Index of smaller element
 
 	for (int j = low; j <= high - 1; j++) {
 		// If current element is smaller than the pivot
@@ -30,7 +30,7 @@ void QuickSort::quickSort(int arr[], int low, int high)
 		// pi is partitioning index, arr[p] is now at right place
 		int pi = partition(arr, low, high);
 
-		// Separately sort elements before partition and after partition
+		// Recursively sort elements before and after partition
 		quickSort(arr, low, pi - 1);
 		quickSort(arr, pi + 1, high);
 	}
