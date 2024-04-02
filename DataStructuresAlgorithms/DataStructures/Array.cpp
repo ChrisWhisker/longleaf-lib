@@ -41,6 +41,13 @@ void Array::fill(int value)
 	std::fill(data, data + size, value);
 }
 
+void Array::print()
+{
+	for (size_t i = 0; i < getSize(); ++i)
+		std::cout << " " << data[i];
+	std::cout << std::endl;
+}
+
 void swap(Array& first, Array& second) noexcept
 {
 	using std::swap;
@@ -53,6 +60,12 @@ void Array::resize(size_t newSize)
 	int* newData = new int[newSize];
 	std::copy(data, data + std::min(size, newSize), newData);
 	delete[] data; // Release old memory
+
+	if (newSize > size)
+	{
+		std::fill(newData + size, newData + newSize, 0); // Initialize new elements to 0
+	}
+
 	data = newData;
 	size = newSize;
 }
@@ -100,7 +113,6 @@ void Array::remove(int value)
 	if (it != data + size)
 	{
 		std::copy(it + 1, data + size, it);
-		resize(size - 1);
 	}
 }
 

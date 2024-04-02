@@ -35,9 +35,7 @@ int main()
 	//// Test reverse()
 	//arr.reverse();
 	//std::cout << "Reversed array:";
-	//for (size_t i = 0; i < arr.getSize(); ++i)
-	//	std::cout << " " << arr[i];
-	//std::cout << std::endl;
+	//arr.print();
 	//// Test find()
 	//int index = arr.find(30);
 	//std::cout << "Index of value 30: " << index << std::endl;

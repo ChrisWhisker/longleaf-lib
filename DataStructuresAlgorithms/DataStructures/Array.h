@@ -43,6 +43,8 @@ public:
 	// Fill the array with a given value
 	void fill(int value);
 
+	void print();
+
 	// Swap contents with another array
 	friend void swap(Array& first, Array& second) noexcept;
 
