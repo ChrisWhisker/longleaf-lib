@@ -1,7 +1,5 @@
 #pragma once
 
-using std::size_t;
-
 /**
  * @brief A dynamic array implementation in C++ using raw pointers.
  *
