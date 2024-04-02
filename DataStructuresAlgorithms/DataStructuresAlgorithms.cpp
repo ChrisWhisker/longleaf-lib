@@ -5,8 +5,8 @@ int main()
 {
 	// ********** DATA STRUCTURES **********
 
-	// Test array    #include "DataStructures/Array.h"
-	//Array arr(5);
+	//// Test array    #include "DataStructures/Array.h"
+	//Array<int> arr(5);
 	//arr.fill(10);
 	//std::cout << "Array size: " << arr.getSize() << std::endl;
 	//arr[2] = 20;
