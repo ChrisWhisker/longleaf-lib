@@ -1,17 +1,18 @@
 #pragma once
 
 /*
-	Quick Sort:
-	Quick Sort efficiently sorts large datasets by recursively partitioning elements based on a chosen pivot.
-	It has an average time complexity of O(n log n) and is best suited for large datasets.
+	Binary Search is a search algorithm that efficiently locates a target value within a sorted array by repeatedly dividing the search interval in half.
+	It guarantees O(log n) time complexity in all cases and is particularly suitable for large sorted datasets.
 
-	Use QuickSort:
-	- When sorting large datasets efficiently is required.
-	- When average-case time complexity is more important.
+	Use Binary Search:
+	- When searching for a target value in a sorted array efficiently is required.
+	- When a consistent O(log n) time complexity is preferred regardless of the input distribution.
+	- When random access to elements in the array is available.
 
-	Avoid QuickSort:
-	- When worst-case time complexity is critical.
-	- When memory usage needs to be minimized.
+	Avoid Binary Search:
+	- When the array is not sorted, as BinarySearch requires a sorted input.
+	- When the dataset is small or not sorted, as simpler linear search algorithms may be more efficient.
+	- When the overhead of maintaining a sorted array outweighs the benefits of faster search times.
 */
 class BinarySearch
 {
