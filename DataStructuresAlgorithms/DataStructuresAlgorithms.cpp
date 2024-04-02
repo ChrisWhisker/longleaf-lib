@@ -6,40 +6,27 @@ int main()
 	// ********** DATA STRUCTURES **********
 
 	// Test array    #include "DataStructures/Array.h"
-	//// Create an array
 	//Array arr(5);
-	//// Fill the array with values
 	//arr.fill(10);
-	//// Test getSize()
 	//std::cout << "Array size: " << arr.getSize() << std::endl;
-	//// Test operator[] (read-write)
 	//arr[2] = 20;
 	//std::cout << "Value at index 2: " << arr[2] << std::endl;
-	//// Test operator[] (read-only)
 	//const int& value = arr[3];
 	//std::cout << "Value at index 3 (read-only): " << value << std::endl;
-	//// Test clear()
 	//arr.clear();
 	//std::cout << "Array size after clear: " << arr.getSize() << std::endl;
-	//// Test isEmpty()
 	//std::cout << "Is array empty? " << (arr.isEmpty() ? "Yes" : "No") << std::endl;
-	//// Test resize()
 	//arr.resize(8);
 	//std::cout << "Array size after resize: " << arr.getSize() << std::endl;
-	//// Test insert()
 	//arr.insert(2, 30);
 	//std::cout << "Value at index 2 after insertion: " << arr[2] << std::endl;
-	//// Test remove()
 	//arr.remove(20);
 	//std::cout << "Array size after removal: " << arr.getSize() << std::endl;
-	//// Test reverse()
 	//arr.reverse();
 	//std::cout << "Reversed array:";
 	//arr.print();
-	//// Test find()
 	//int index = arr.find(30);
 	//std::cout << "Index of value 30: " << index << std::endl;
-	//// Test count()
 	//size_t count = arr.count(10);
 	//std::cout << "Count of value 10: " << count << std::endl;
 
