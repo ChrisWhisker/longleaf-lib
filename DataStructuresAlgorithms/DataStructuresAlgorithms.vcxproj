@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="DataStructures/Array.cpp" />
     <ClCompile Include="ArrayUtils.cpp" />
+    <ClCompile Include="DataStructures/LinkedList.cpp" />
     <ClCompile Include="Sort/MergeSort.cpp" />
     <ClCompile Include="Search/BinarySearch.cpp" />
     <ClCompile Include="DataStructuresAlgorithms.cpp" />
@@ -137,6 +138,7 @@
   <ItemGroup>
     <ClInclude Include="DataStructures/Array.h" />
     <ClInclude Include="ArrayUtils.h" />
+    <ClInclude Include="DataStructures/LinkedList.h" />
     <ClInclude Include="Sort/MergeSort.h" />
     <ClInclude Include="Search/BinarySearch.h" />
     <ClInclude Include="Sort/QuickSort.h" />
