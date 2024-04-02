@@ -27,12 +27,6 @@
     <ClCompile Include="Sort/MergeSort.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ArrayUtils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DataStructures/Array.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="DataStructures/LinkedList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
