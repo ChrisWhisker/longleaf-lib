@@ -24,6 +24,7 @@
     <ProjectGuid>{739a1908-6703-4417-8470-839092c0b228}</ProjectGuid>
     <RootNamespace>DataStructuresAlgorithms</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>LongLeaf</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -129,7 +130,7 @@
   <ItemGroup>
     <ClCompile Include="Sort/MergeSort.cpp" />
     <ClCompile Include="Search/BinarySearch.cpp" />
-    <ClCompile Include="DataStructuresAlgorithms.cpp" />
+    <ClCompile Include="LongLeaf.cpp" />
     <ClCompile Include="Sort/QuickSort.cpp" />
   </ItemGroup>
   <ItemGroup>

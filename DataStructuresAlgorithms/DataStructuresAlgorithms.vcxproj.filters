@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DataStructuresAlgorithms.cpp">
+    <ClCompile Include="LongLeaf.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Sort/QuickSort.cpp">
