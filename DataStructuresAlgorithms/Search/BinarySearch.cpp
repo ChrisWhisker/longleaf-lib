@@ -1,5 +1,4 @@
 #include "BinarySearch.h"
-#include <iostream>
 
 int BinarySearch::binarySearch(int arr[], int size, int target)
 {

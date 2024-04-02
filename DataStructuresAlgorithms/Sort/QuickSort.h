@@ -20,7 +20,7 @@ public:
 
 private:
 	// Function to swap two elements in the array
-	void swap(int* a, int* b);
+	void swap(int* a, int* b) noexcept;
 
 	// Partition function to rearrange the array so that elements smaller than pivot are on the left and larger than pivot are on the right
 	int partition(int arr[], int low, int high);

@@ -26,11 +26,11 @@ private:
 
 public:
     // Constructors
-    Array() : size(0), data(nullptr) {}
+    Array() : data(nullptr), size(0) {}
 
-    Array(size_t arraySize) : size(arraySize), data(new T[arraySize]) {}
+    Array(size_t arraySize) : data(new T[arraySize]), size(arraySize) {}
 
-    Array(const Array& other) : size(other.size), data(new T[other.size])
+    Array(const Array& other) : data(new T[other.size]), size(other.size)
     {
         std::copy(other.data, other.data + size, data);
     }
