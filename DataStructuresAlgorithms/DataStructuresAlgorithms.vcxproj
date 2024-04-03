@@ -129,7 +129,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="LongLeaf.cpp" />
-    <ClCompile Include="Sort/QuickSort.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataStructures/Array.h" />

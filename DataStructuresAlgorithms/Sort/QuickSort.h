@@ -12,11 +12,12 @@
 	- When worst-case time complexity is critical.
 	- When memory usage needs to be minimized.
 */
+template <typename T>
 class QuickSort
 {
 public:
 	// The main function that implements QuickSort
-	void quickSort(int arr[], int low, int high)
+	void quickSort(T arr[], int low, int high)
 	{
 		if (low < high) // If there are more than one elements in the subarray
 		{
@@ -31,18 +32,18 @@ public:
 
 private:
 	// Function to swap two elements in the array
-	void swap(int* a, int* b) noexcept
+	void swap(T* a, T* b) noexcept
 	{
-		const int temp = *a;
+		const T temp = *a;
 		*a = *b;
 		*b = temp;
 	}
 
 	// Partition function to rearrange the array so that elements smaller than pivot are on the left and larger than pivot are on the right
-	int partition(int arr[], int low, int high)
+	int partition(T arr[], int low, int high)
 	{
-		const int pivot = arr[high]; // Choose the last element of the array as the pivot
-		int i = low - 1;	   // Initialize the index of the smaller element to one less than the low index
+		const T pivot = arr[high]; // Choose the last element of the array as the pivot
+		int i = low - 1;		   // Initialize the index of the smaller element to one less than the low index
 
 		for (int j = low; j <= high - 1; j++)
 		{

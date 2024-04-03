@@ -81,13 +81,13 @@ int main()
 	// return 0;
 
 	// Test QuickSort    #include "Sort/QuickSort.h"
-	// int arr[] = { 10, 7, 8, 9, 1, 5 };
-	// int n = sizeof(arr) / sizeof(arr[0]);
+	// char arr[] = { 'y', '6', 'z', '4', 'x', '0', '5'};
+	// const int n = sizeof(arr) / sizeof(arr[0]);
 	// std::cout << "Original array: ";
-	// QuickSort qs;
-	// ArrayUtils<int, 6>::print(arr);
+	// QuickSort<char> qs;
+	// ArrayUtils<char, n>::print(arr);
 	// qs.quickSort(arr, 0, n - 1);
 	// std::cout << "Sorted array: ";
-	// ArrayUtils<int, 6>::print(arr);
+	// ArrayUtils<char, n>::print(arr);
 	// return 0;
 }
