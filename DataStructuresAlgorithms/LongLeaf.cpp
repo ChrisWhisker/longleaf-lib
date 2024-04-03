@@ -70,14 +70,14 @@ int main()
 	// ********** SORT **********
 
 	// Test Merge Sort    #include "Sort/MergeSort.h"
-	// int arr[] = { 12, 11, 13, 5, 6, 7 };
-	// int arr_size = sizeof(arr) / sizeof(arr[0]);
+	// float arr[] = {  8.23, 3.14159, 0.5, 2.77, -88, 0.01, 42.113, -42.5, 290, -17.5, };
+	// const int arr_size = sizeof(arr) / sizeof(arr[0]);
 	// std::cout << "Given array is \n";
-	// ArrayUtils<int, 6>::print(arr);
-	// MergeSort ms;
+	// ArrayUtils<float, arr_size>::print(arr);
+	// MergeSort<float> ms;
 	// ms.mergeSort(arr, 0, arr_size - 1);
 	// std::cout << "Sorted array is \n";
-	// ArrayUtils<int, 6>::print(arr);
+	// ArrayUtils<float, arr_size>::print(arr);
 	// return 0;
 
 	// Test QuickSort    #include "Sort/QuickSort.h"
