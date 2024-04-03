@@ -129,7 +129,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Sort/MergeSort.cpp" />
-    <ClCompile Include="Search/BinarySearch.cpp" />
     <ClCompile Include="LongLeaf.cpp" />
     <ClCompile Include="Sort/QuickSort.cpp" />
   </ItemGroup>

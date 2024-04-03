@@ -21,9 +21,6 @@
     <ClCompile Include="Sort/QuickSort.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Search/BinarySearch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Sort/MergeSort.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

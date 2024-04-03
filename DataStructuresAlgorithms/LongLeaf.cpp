@@ -56,15 +56,15 @@ int main()
 	// ********** SEARCH **********
 
 	// Test Binary Search    #include "Search/BinarySearch.h"
-	// int arr[] = { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 };
+	// char arr[] = { 'a', 'd', 'f', 'i', 'j', 'k', 'o', 'r', 'w', 'y'};
 	// int size = sizeof(arr) / sizeof(arr[0]); // Calculate size of array
-	// int target = 12;
-	// BinarySearch bs;
+	// char target = 'k';
+	// BinarySearch<char> bs;
 	// int result = bs.binarySearch(arr, size, target);
 	// if (result != -1)
-	//	std::cout << "Element found at index: " << result << std::endl;
+	// std::cout << "Element found at index: " << result << std::endl;
 	// else
-	//	std::cout << "Element not found" << std::endl;
+	// std::cout << "Element not found" << std::endl;
 	// return 0;
 
 	// ********** SORT **********
