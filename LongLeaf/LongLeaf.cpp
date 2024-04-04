@@ -8,20 +8,6 @@
 using std::cout;
 using std::endl;
 
-int main()
-{
-	// ********** DATA STRUCTURES **********
-	testArray();
-	testLinkedList();
-
-	// ********** SEARCH **********
-	testBinarySearch();
-
-	// ********** SORT **********
-	testMergeSort();
-	testQuickSort();
-}
-
 static void testArray()
 {
 	Array<int> arr(5);
@@ -108,4 +94,18 @@ static void testQuickSort()
 	qs.quickSort(arr, 0, size - 1);
 	cout << "Sorted array: ";
 	ArrayUtils<char, size>::print(arr);
+}
+
+int main()
+{
+	// ********** DATA STRUCTURES **********
+	testArray();
+	testLinkedList();
+
+	// ********** SEARCH **********
+	testBinarySearch();
+
+	// ********** SORT **********
+	testMergeSort();
+	testQuickSort();
 }
