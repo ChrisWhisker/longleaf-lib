@@ -5,7 +5,6 @@
 #include "Sort/MergeSort.h"
 #include "Sort/QuickSort.h"
 #include <iostream>
-
 using std::cout;
 using std::endl;
 

@@ -1,5 +1,4 @@
 #pragma once
-
 #include <cassert>
 #include <iostream>
 #include <stdexcept> // for std::out_of_range exception
