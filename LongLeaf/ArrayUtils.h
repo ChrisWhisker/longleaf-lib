@@ -2,14 +2,14 @@
 #include <iostream>
 
 /*
-   This class provides utility functions for working with C-style arrays, including printing
-   elements, finding the maximum and minimum elements, calculating the sum and average, checking
-   for a specific value, and reversing the elements.
+	This class provides utility functions for working with C-style arrays, including printing
+	elements, finding the maximum and minimum elements, calculating the sum and average, checking
+	for a specific value, and reversing the elements.
 
-   Usage:
-   - Include the ArrayUtils.h header file in your code.
-   - Instantiate the ArrayUtils class with the desired data type and array size.
-   - Use the provided static member functions to perform various operations on arrays.
+	Usage:
+	- Include the ArrayUtils.h header file in your code.
+	- Instantiate the ArrayUtils class with the desired data type and array size.
+	- Use the provided static member functions to perform various operations on arrays.
 */
 template <typename T, size_t size>
 class ArrayUtils
@@ -22,7 +22,7 @@ public:
 		{
 			std::cout << elem << " ";
 		}
-		std::cout << std::endl;
+		std::cout << "\n";
 	}
 
 	// Find the maximum element in an array

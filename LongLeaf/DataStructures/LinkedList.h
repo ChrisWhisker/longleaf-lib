@@ -1,22 +1,22 @@
 #pragma once
 #include <iostream>
 
-/**
- * @brief A singly linked list implementation in C++ using templates.
- *
- * The LinkedList class provides functionality for creating and manipulating
- * singly linked lists of any data type. It supports operations such as insertion,
- * removal, length retrieval, and display of elements in the list.
- *
- * This class can be used in situations where a dynamic data structure for
- * maintaining a collection of elements is needed. It allows flexibility in
- * storing and accessing elements, while also providing efficient insertion and
- * removal operations. Additionally, the use of templates allows the LinkedList
- * class to work with any data type.
- *
- * When using this class, it's important to note that manual memory management
- * is required, as the LinkedList class uses raw pointers for node allocation
- * and deallocation.
+/*
+	A singly linked list implementation in C++ using templates.
+
+	The LinkedList class provides functionality for creating and manipulating
+	singly linked lists of any data type. It supports operations such as insertion,
+	removal, length retrieval, and display of elements in the list.
+
+	This class can be used in situations where a dynamic data structure for
+	maintaining a collection of elements is needed. It allows flexibility in
+	storing and accessing elements, while also providing efficient insertion and
+	removal operations. Additionally, the use of templates allows the LinkedList
+	class to work with any data type.
+
+	When using this class, it's important to note that manual memory management
+	is required, as the LinkedList class uses raw pointers for node allocation
+	and deallocation.
  */
 template <typename T>
 class LinkedList
@@ -228,6 +228,6 @@ public:
 			std::cout << current->data << " ";
 			current = current->next;
 		}
-		std::cout << std::endl;
+		std::cout << "\n";
 	}
 };

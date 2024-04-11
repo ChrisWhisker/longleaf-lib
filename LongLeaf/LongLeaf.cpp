@@ -6,37 +6,38 @@
 #include "Sort/QuickSort.h"
 #include <iostream>
 using std::cout;
-using std::endl;
 
 static void testArray()
 {
+	cout << "\nTESTING ARRAY CLASS\n";
 	Array<int> arr(5);
 	arr.fill(10);
-	cout << "Array size: " << arr.getSize() << endl;
+	cout << "Array size: " << arr.getSize() << "\n";
 	arr[2] = 20;
-	cout << "Value at index 2: " << arr[2] << endl;
+	cout << "Value at index 2: " << arr[2] << "\n";
 	const int& value = arr[3];
-	cout << "Value at index 3 (read-only): " << value << endl;
+	cout << "Value at index 3 (read-only): " << value << "\n";
 	arr.clear();
-	cout << "Array size after clear: " << arr.getSize() << endl;
-	cout << "Is array empty? " << (arr.isEmpty() ? "Yes" : "No") << endl;
+	cout << "Array size after clear: " << arr.getSize() << "\n";
+	cout << "Is array empty? " << (arr.isEmpty() ? "Yes" : "No") << "\n";
 	arr.resize(8);
-	cout << "Array size after resize: " << arr.getSize() << endl;
+	cout << "Array size after resize: " << arr.getSize() << "\n";
 	arr.insert(2, 30);
-	cout << "Value at index 2 after insertion: " << arr[2] << endl;
+	cout << "Value at index 2 after insertion: " << arr[2] << "\n";
 	arr.remove(20);
-	cout << "Array size after removal: " << arr.getSize() << endl;
+	cout << "Array size after removal: " << arr.getSize() << "\n";
 	arr.reverse();
 	cout << "Reversed array:";
 	arr.print();
 	int index = arr.find(30);
-	cout << "Index of value 30: " << index << endl;
+	cout << "Index of value 30: " << index << "\n";
 	size_t count = arr.count(10);
-	cout << "Count of value 10: " << count << endl;
+	cout << "Count of value 10: " << count << "\n";
 }
 
 static void testLinkedList()
 {
+	cout << "\nTESTING LINKED LIST\n";
 	LinkedList<int> list;
 	list.insertAtBeginning(1);
 	list.insertAtBeginning(2);
@@ -56,24 +57,26 @@ static void testLinkedList()
 	list.removeAtPosition(3);
 	cout << "List after removeAtPosition(3): ";
 	list.display();     	 // Expected output: 3 10 4 5
-	cout << "Length of the list: " << list.length() << endl; // Expected output: 4
+	cout << "Length of the list: " << list.length() << "\n"; // Expected output: 4
 }
 
 static void testBinarySearch()
 {
+	cout << "\nTESTING BINARY SEARCH\n";
 	char arr[] = { 'a', 'd', 'f', 'i', 'j', 'k', 'o', 'r', 'w', 'y' };
 	int size = sizeof(arr) / sizeof(arr[0]); // Calculate size of array
 	char target = 'k';
 	BinarySearch<char> bs;
 	int result = bs.binarySearch(arr, size, target);
 	if (result != -1)
-		cout << "Element found at index: " << result << endl;
+		cout << "Element found at index: " << result << "\n";
 	else
-		cout << "Element not found" << endl;
+		cout << "Element not found" << "\n";
 }
 
 static void testMergeSort()
 {
+	cout << "\nTESTING MERGE SORT\n";
 	float arr[] = { 8.23, 3.14159, 0.5, 2.77, -88, 0.01, 42.113, -42.5, 290, -17.5, };
 	const int size = sizeof(arr) / sizeof(arr[0]);
 	cout << "Given array is \n";
@@ -86,6 +89,7 @@ static void testMergeSort()
 
 static void testQuickSort()
 {
+	cout << "\nTESTING QUICK SORT\n";
 	char arr[] = { 'y', '6', 'z', '4', 'x', '0', '5' };
 	const int size = sizeof(arr) / sizeof(arr[0]);
 	cout << "Original array: ";
