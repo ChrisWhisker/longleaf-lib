@@ -4,6 +4,7 @@
 #include "Search/BinarySearch.h"
 #include "Sort/MergeSort.h"
 #include "Sort/QuickSort.h"
+#include "StringUtils.h"
 #include <iostream>
 using std::cout;
 
@@ -100,6 +101,48 @@ static void testQuickSort()
 	ArrayUtils<char, size>::print(arr);
 }
 
+static void testStringUtils()
+{
+	cout << "\nTESTING STRING UTILS\n";
+	const char* str1 = "Hello";
+	const char* str2 = "World";
+
+	// Test StringUtils functions
+	std::cout << "Length of str1: " << StringUtils::length(str1) << std::endl;
+	std::cout << "Comparison of str1 and str2: " << StringUtils::compare(str1, str2) << std::endl;
+
+	char* concatStr = StringUtils::concatenate(str1, str2);
+	std::cout << "Concatenated string: " << concatStr << std::endl;
+	delete[] concatStr;
+
+	const char* subStr = StringUtils::substring(str1, 1, 3);
+	std::cout << "Substring of str1: " << subStr << std::endl;
+
+	char upperStr[] = "hello";
+	StringUtils::toUpper(upperStr);
+	std::cout << "Uppercase of 'hello': " << upperStr << std::endl;
+
+	char lowerStr[] = "HELLO";
+	StringUtils::toLower(lowerStr);
+	std::cout << "Lowercase of 'HELLO': " << lowerStr << std::endl;
+
+	const char* foundChar = StringUtils::findChar(str1, 'e');
+	if (foundChar)
+		std::cout << "Found character 'e' at index: " << (foundChar - str1) << std::endl;
+
+	const char* foundLastChar = StringUtils::findLastChar(str1, 'l');
+	if (foundLastChar)
+		std::cout << "Found last character 'l' at index: " << (foundLastChar - str1) << std::endl;
+
+	char* copiedStr = StringUtils::copy(str1, 3);
+	std::cout << "Copied string: " << copiedStr << std::endl;
+	delete[] copiedStr;
+
+	char reverseStr[] = "reverse";
+	StringUtils::reverse(reverseStr);
+	std::cout << "Reversed string: " << reverseStr << std::endl;
+}
+
 int main()
 {
 	// ********** DATA STRUCTURES **********
@@ -112,4 +155,7 @@ int main()
 	// ********** SORT **********
 	testMergeSort();
 	testQuickSort();
+
+	// ********** UTILS **********
+	testStringUtils();
 }

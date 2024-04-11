@@ -133,9 +133,11 @@
     <ClInclude Include="DataStructures/LinkedList.h" />
     <ClInclude Include="Sort/MergeSort.h" />
     <ClInclude Include="Sort/QuickSort.h" />
+    <ClInclude Include="StringUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LongLeaf.cpp" />
+    <ClCompile Include="StringUtils.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
