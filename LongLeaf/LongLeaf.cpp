@@ -1,10 +1,10 @@
-#include "ArrayUtils.h"
 #include "DataStructures/Array.h"
 #include "DataStructures/LinkedList.h"
 #include "Search/BinarySearch.h"
 #include "Sort/MergeSort.h"
 #include "Sort/QuickSort.h"
-#include "StringUtils.h"
+#include "Utils/ArrayUtils.h"
+#include "Utils/StringUtils.h"
 #include <iostream>
 using std::cout;
 

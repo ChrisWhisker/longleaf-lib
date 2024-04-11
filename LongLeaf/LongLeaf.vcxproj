@@ -128,16 +128,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="DataStructures/Array.h" />
-    <ClInclude Include="ArrayUtils.h" />
+    <ClInclude Include="Utils/ArrayUtils.h" />
     <ClInclude Include="Search/BinarySearch.h" />
     <ClInclude Include="DataStructures/LinkedList.h" />
     <ClInclude Include="Sort/MergeSort.h" />
     <ClInclude Include="Sort/QuickSort.h" />
-    <ClInclude Include="StringUtils.h" />
+    <ClInclude Include="Utils/StringUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LongLeaf.cpp" />
-    <ClCompile Include="StringUtils.cpp" />
+    <ClCompile Include="Utils/StringUtils.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
