@@ -78,14 +78,14 @@ static void testBinarySearch()
 static void testMergeSort()
 {
 	cout << "\nTESTING MERGE SORT\n";
-	float arr[] = { 8.23, 3.14159, 0.5, 2.77, -88, 0.01, 42.113, -42.5, 290, -17.5, };
+	double arr[] = { 8.23, 3.14159, 0.5, 2.77, -88, 0.01, 42.113, -42.5, 290, -17.5, };
 	const int size = sizeof(arr) / sizeof(arr[0]);
 	cout << "Given array is \n";
-	ArrayUtils<float, size>::print(arr);
-	MergeSort<float> ms;
+	ArrayUtils<double, size>::print(arr);
+	MergeSort<double> ms;
 	ms.mergeSort(arr, 0, size - 1);
 	cout << "Sorted array is \n";
-	ArrayUtils<float, size>::print(arr);
+	ArrayUtils<double, size>::print(arr);
 }
 
 static void testQuickSort()
