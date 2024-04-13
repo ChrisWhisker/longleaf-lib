@@ -207,4 +207,10 @@ public:
 
 		return true; // All elements are equal
 	}
+
+	bool operator!=(const Array& other) const
+	{
+		// Use the == operator to check for equality and negate the result
+		return !(*this == other);
+	}
 };
