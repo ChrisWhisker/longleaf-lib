@@ -10,30 +10,39 @@ using std::cout;
 
 static void testArray()
 {
-	cout << "\nTESTING ARRAY CLASS\n";
+	std::cout << "\nTESTING ARRAY CLASS\n";
 	Array<int> arr(5);
 	arr.fill(10);
-	cout << "Array size: " << arr.getSize() << "\n";
+	assert(arr.getSize() == 5); // Check if getSize() returns expected value
+	assert(arr[2] == 10); // Check if value at index 2 is set correctly
 	arr[2] = 20;
-	cout << "Value at index 2: " << arr[2] << "\n";
+	assert(arr[2] == 20); // Check if value at index 2 is updated correctly
 	const int& value = arr[3];
-	cout << "Value at index 3 (read-only): " << value << "\n";
+	assert(value == 10); // Check if value at index 3 is retrieved correctly
 	arr.clear();
-	cout << "Array size after clear: " << arr.getSize() << "\n";
-	cout << "Is array empty? " << (arr.isEmpty() ? "Yes" : "No") << "\n";
+	assert(arr.getSize() == 0); // Check if clear() empties the array
+	assert(arr.isEmpty() == true); // Check if isEmpty() returns true after clear()
 	arr.resize(8);
-	cout << "Array size after resize: " << arr.getSize() << "\n";
-	arr.insert(2, 30);
-	cout << "Value at index 2 after insertion: " << arr[2] << "\n";
-	arr.remove(20);
-	cout << "Array size after removal: " << arr.getSize() << "\n";
+	assert(arr.getSize() == 8); // Check if resize() works correctly
+	arr.fill(9);
+	arr.insert(2, 35);
+	assert(arr[2] == 35); // Check if insert() inserts value correctly
+	arr.remove(35);
+	assert(arr.getSize() == 8); // Check if remove() changes array size
+	arr.resize(2);
+	arr.insert(0, 16);
 	arr.reverse();
-	cout << "Reversed array:";
-	arr.print();
-	int index = arr.find(30);
-	cout << "Index of value 30: " << index << "\n";
+	Array<int> reversed(0);
+	reversed.insert(0, 9);
+	reversed.insert(1, 9);
+	reversed.insert(2, 16);
+	assert(arr == reversed); // Check reversed array
+	arr.insert(2, 22);
+	int index = arr.find(22);
+	assert(index == 2); // Check if find() returns correct index
 	size_t count = arr.count(10);
-	cout << "Count of value 10: " << count << "\n";
+	assert(count == 0); // Check if count() returns correct count
+	std::cout << "All tests passed successfully!\n";
 }
 
 static void testLinkedList()

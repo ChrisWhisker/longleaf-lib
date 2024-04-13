@@ -27,7 +27,10 @@ public:
 	// Constructors
 	Array() : data(nullptr), size(0) {}
 
-	Array(size_t arraySize) : data(new T[arraySize]), size(arraySize) {}
+	Array(size_t arraySize) : data(new T[arraySize]), size(arraySize) {
+		for (size_t i = 0; i < arraySize; ++i)
+			data[i] = T();
+	}
 
 	Array(const Array& other) : data(new T[other.size]), size(other.size)
 	{
@@ -78,25 +81,32 @@ public:
 	// Print the elements of the array
 	void print()
 	{
+		std::cout << "{";
 		for (size_t i = 0; i < size; ++i)
-			std::cout << " " << data[i];
-		std::cout << "\n";
+			std::cout << " [" << data[i] << "]";
+		std::cout << " }\n";
 	}
 
 	// Resize the array
 	void resize(size_t newSize)
 	{
-		T* newData = new T[newSize];
-		std::copy(data, data + std::min(size, newSize), newData);
-		delete[] data;
+		if (newSize == size) return; // If the size is unchanged, do nothing
 
+		T* newData = new T[newSize];
+
+		// Copy elements up to the minimum of the old and new size
+		size_t minSize = std::min(size, newSize);
+		std::copy(data, data + minSize, newData);
+
+		// Initialize new elements to default value for type T if size is increased
 		if (newSize > size)
 		{
-			// Initialize new elements to default value for type T
 			for (size_t i = size; i < newSize; ++i)
 				newData[i] = T();
 		}
 
+		// Update array pointer and size
+		delete[] data;
 		data = newData;
 		size = newSize;
 	}
@@ -157,7 +167,11 @@ public:
 		auto it = std::find(data, data + size, value);
 		if (it != data + size)
 		{
+			// Shift elements to cover the removed element
 			std::copy(it + 1, data + size, it);
+
+			// Resize the array to remove the last element
+			resize(size - 1);
 		}
 	}
 
@@ -176,5 +190,21 @@ public:
 		using std::swap;
 		swap(first.data, second.data);
 		swap(first.size, second.size);
+	}
+
+	bool operator==(const Array& other) const
+	{
+		// If sizes are different, arrays are not equal
+		if (size != other.size)
+			return false;
+
+		// Compare each element
+		for (size_t i = 0; i < size; ++i)
+		{
+			if (data[i] != other.data[i])
+				return false;
+		}
+
+		return true; // All elements are equal
 	}
 };
