@@ -47,7 +47,7 @@ public:
 	}
 
 private:
-	// Function to merge two subarrays of arr[]
+	// Merge two subarrays of arr[]
 	// First subarray is arr[leftIndex..middleIndex]
 	// Second subarray is arr[middleIndex+1..rightIndex]
 	// Parameters:

@@ -51,14 +51,14 @@ public:
 		}
 	}
 
-	// Function to check if the list is empty
+	// Check if the list is empty
 	// Returns: true if the list is empty, false otherwise.
 	bool isEmpty() const
 	{
 		return head == nullptr;
 	}
 
-	// Function to insert a node at the beginning of the list
+	// Insert a node at the beginning of the list
 	// Parameters:
 	//   value: The data to be inserted.
 	void insertAtBeginning(const T& value)
@@ -68,7 +68,7 @@ public:
 		head = newNode;
 	}
 
-	// Function to insert a node at the end of the list
+	// Insert a node at the end of the list
 	// Parameters:
 	//   value: The data to be inserted.
 	void insertAtEnd(const T& value)
@@ -90,7 +90,7 @@ public:
 		current->next = newNode;
 	}
 
-	// Function to insert a node at a specified position in the list
+	// Insert a node at a specified position in the list
 	// Parameters:
 	//   value: The data to be inserted.
 	//   position: The position at which the data should be inserted.
@@ -132,7 +132,7 @@ public:
 		current->next = newNode;
 	}
 
-	// Function to remove the first occurrence of a value from the list
+	// Remove the first occurrence of a value from the list
 	// Parameters:
 	//   value: The value to be removed.
 	// Exception: Prints error message if list is empty or value is not found.
@@ -174,7 +174,7 @@ public:
 		delete toDelete;
 	}
 
-	// Function to remove a node at a specified position in the list
+	// Remove a node at a specified position in the list
 	// Parameters:
 	//   position: The position of the node to be removed.
 	// Exception: Prints error message if list is empty or position is invalid or out of range.
@@ -223,7 +223,7 @@ public:
 		delete toDelete;
 	}
 
-	// Function to get the length of the list
+	// Get the length of the list
 	// Returns: The number of nodes in the list.
 	int length() const
 	{
@@ -237,7 +237,7 @@ public:
 		return len;
 	}
 
-	// Function to display the list
+	// Display the list
 	void display() const
 	{
 		Node* current = head;
@@ -249,7 +249,7 @@ public:
 		std::cout << "\n";
 	}
 
-	// Function to convert the list to a string
+	// Convert the list to a string
 	// Returns: A string representation of the list.
 	char* toString() const
 	{

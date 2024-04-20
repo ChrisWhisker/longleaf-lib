@@ -23,7 +23,7 @@ template <typename T>
 class BinarySearch
 {
 public:
-	// Function to perform binary search
+	// Perform binary search
 	// Parameters:
 	//   arr: The sorted array to be searched.
 	//   size: The number of elements in the array.

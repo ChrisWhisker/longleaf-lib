@@ -36,7 +36,7 @@ public:
 	}
 
 private:
-	// Function to swap two elements in the array
+	// Swap two elements in the array
 	// Parameters:
 	//   a: Pointer to the first element to be swapped.
 	//   b: Pointer to the second element to be swapped.
@@ -47,7 +47,7 @@ private:
 		*b = temp;
 	}
 
-	// Partition function to rearrange the array so that elements smaller than pivot are on the left and larger than pivot are on the right
+	// Rearrange the array so that elements smaller than pivot are on the left and larger than pivot are on the right
 	// Parameters:
 	//   arr: The array to be partitioned.
 	//   low: The starting index of the array or subarray to be partitioned.
