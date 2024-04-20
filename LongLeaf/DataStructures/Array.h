@@ -175,6 +175,19 @@ public:
 		}
 	}
 
+	// Remove the element at the specified position
+	void removeAtPosition(int position)
+	{
+		if (position < 0 || static_cast<size_t>(position) >= size)
+			throw std::out_of_range("Position out of range");
+
+		// Shift elements to cover the removed element
+		std::copy(data + position + 1, data + size, data + position);
+
+		// Resize the array to remove the last element
+		resize(size - 1);
+	}
+
 	// Insert a value at a specified index
 	void insert(size_t index, T value)
 	{
