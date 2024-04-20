@@ -42,7 +42,7 @@ static void testArray()
 	assert(index == 2); // Check if find() returns correct index
 	size_t count = arr.count(10);
 	assert(count == 0); // Check if count() returns correct count
-	std::cout << "All tests passed successfully!\n";
+	std::cout << "All Array tests passed!\n";
 }
 
 static void testLinkedList()
@@ -110,6 +110,29 @@ static void testQuickSort()
 	ArrayUtils<char, size>::print(arr);
 }
 
+static void testArrayUtils() {
+	cout << "\nTESTING ARRAY UTILS\n";
+	// Test array
+	int arr[] = { 10, 20, 30, 40, 50 };
+	// Test print
+	ArrayUtils<int, 5>::print(arr);
+	// Test max
+	assert((ArrayUtils<int, 5>::max(arr)) == 50);
+	// Test min
+	assert((ArrayUtils<int, 5>::min(arr)) == 10);
+	// Test sum
+	assert((ArrayUtils<int, 5>::sum(arr)) == 150);
+	// Test average
+	assert((ArrayUtils<int, 5>::average(arr)) == 30.0);
+	// Test containsValue
+	assert((ArrayUtils<int, 5>::containsValue(arr, 20)));
+	assert(!(ArrayUtils<int, 5>::containsValue(arr, 60)));
+	// Test reverse
+	ArrayUtils<int, 5>::reverse(arr);
+	assert(arr[0] == 50 && arr[4] == 10);
+	std::cout << "All array utils tests passed!\n";
+}
+
 static void testStringUtils()
 {
 	cout << "\nTESTING STRING UTILS\n";
@@ -166,5 +189,6 @@ int main()
 	testQuickSort();
 
 	// ********** UTILS **********
+	testArrayUtils();
 	testStringUtils();
 }

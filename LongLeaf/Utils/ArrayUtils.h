@@ -58,8 +58,8 @@ public:
 	// Calculate the average of elements in an array
 	static double average(const T(&arr)[size])
 	{
-		T sum = sum(arr);
-		return static_cast<double>(sum) / size;
+		T sumVal = sum(arr);
+		return static_cast<double>(sumVal) / size;
 	}
 
 	// Check if a value is contained within an array
