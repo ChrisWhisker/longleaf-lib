@@ -25,13 +25,17 @@ private:
 
 public:
 	// Constructors
+
+	// Default constructor
 	Array() : data(nullptr), size(0) {}
 
+	// Constructor with initial size
 	Array(size_t arraySize) : data(new T[arraySize]), size(arraySize) {
 		for (size_t i = 0; i < arraySize; ++i)
 			data[i] = T();
 	}
 
+	// Copy constructor
 	Array(const Array& other) : data(new T[other.size]), size(other.size)
 	{
 		std::copy(other.data, other.data + size, data);
@@ -205,6 +209,7 @@ public:
 		swap(first.size, second.size);
 	}
 
+	// Equality operator
 	bool operator==(const Array& other) const
 	{
 		// If sizes are different, arrays are not equal
@@ -221,6 +226,7 @@ public:
 		return true; // All elements are equal
 	}
 
+	// Inequality operator
 	bool operator!=(const Array& other) const
 	{
 		// Use the == operator to check for equality and negate the result

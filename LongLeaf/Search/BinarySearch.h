@@ -24,13 +24,18 @@ class BinarySearch
 {
 public:
 	// Function to perform binary search
+	// Parameters:
+	//   arr: The sorted array to be searched.
+	//   size: The number of elements in the array.
+	//   target: The value to be searched for.
+	// Returns: The index of the target value if found, or -1 if not found.
 	int binarySearch(T arr[], int size, T target)
 	{
 		// Input validation
 		if (arr == nullptr || size <= 0)
 			return -1;
 
-		int left = 0;		  // Initialize left pointer to the beginning of the array
+		int left = 0; // Initialize left pointer to the beginning of the array
 		int right = size - 1; // Initialize right pointer to the end of the array
 
 		while (left <= right) // Perform binary search until left pointer is less than or equal to right pointer

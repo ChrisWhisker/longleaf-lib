@@ -1,6 +1,6 @@
 #include "StringUtils.h"
 #include <cstring> // Include for C string manipulation functions
-#include <cctype>  // Include for character handling functions
+#include <cctype> // Include for character handling functions
 #include <iostream>
 
 size_t StringUtils::length(const char* str)
@@ -85,11 +85,11 @@ const char* StringUtils::findLastChar(const char* str, char ch)
 char* StringUtils::copy(const char* source, size_t length)
 {
 	if (source == nullptr) // Check if input string is nullptr
-		return nullptr;	   // Return nullptr if it is
+		return nullptr;	 // Return nullptr if it is
 
-	char* result = new char[length + 1];		   // Allocate memory for copied string
+	char* result = new char[length + 1];		 // Allocate memory for copied string
 	strncpy_s(result, length + 1, source, length); // Copy portion of source string to result
-	result[length] = '\0';						   // Null-terminate result string
+	result[length] = '\0';						 // Null-terminate result string
 
 	return result; // Return pointer to copied string
 }

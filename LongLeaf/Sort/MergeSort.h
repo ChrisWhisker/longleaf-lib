@@ -24,6 +24,10 @@ class MergeSort
 {
 public:
 	// Main function that sorts arr[leftIndex..rightIndex] using merge()
+	// Parameters:
+	//   arr: The array to be sorted.
+	//   leftIndex: The index of the first element of the array or subarray to be sorted.
+	//   rightIndex: The index of the last element of the array or subarray to be sorted.
 	void mergeSort(T arr[], int leftIndex, int rightIndex)
 	{
 		// Validate input parameters
@@ -46,6 +50,11 @@ private:
 	// Function to merge two subarrays of arr[]
 	// First subarray is arr[leftIndex..middleIndex]
 	// Second subarray is arr[middleIndex+1..rightIndex]
+	// Parameters:
+	//   arr: The array containing the subarrays to be merged.
+	//   leftIndex: The index of the first element of the left subarray.
+	//   middleIndex: The index of the last element of the left subarray.
+	//   rightIndex: The index of the last element of the right subarray.
 	void merge(T arr[], int leftIndex, int middleIndex, int rightIndex)
 	{
 		// Validate input parameters

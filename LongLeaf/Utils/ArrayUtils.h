@@ -22,6 +22,8 @@ class ArrayUtils
 {
 public:
 	// Print elements of an array
+	// Parameters:
+	//   arr: The C-style array to be printed.
 	static void print(const T(&arr)[size])
 	{
 		for (const auto& elem : arr)
@@ -32,6 +34,9 @@ public:
 	}
 
 	// Find the maximum element in an array
+	// Parameters:
+	//   arr: The C-style array in which the maximum element is to be found.
+	// Returns: The maximum element found in the array.
 	static T max(const T(&arr)[size])
 	{
 		T maxElement = arr[0];
@@ -46,6 +51,9 @@ public:
 	}
 
 	// Find the minimum element in an array
+	// Parameters:
+	//   arr: The C-style array in which the minimum element is to be found.
+	// Returns: The minimum element found in the array.
 	static T min(const T(&arr)[size])
 	{
 		T minElement = arr[0];
@@ -60,6 +68,9 @@ public:
 	}
 
 	// Calculate the sum of elements in an array
+	// Parameters:
+	//   arr: The C-style array whose elements are to be summed.
+	// Returns: The sum of all elements in the array.
 	static T sum(const T(&arr)[size])
 	{
 		T sum = T();
@@ -71,6 +82,9 @@ public:
 	}
 
 	// Calculate the average of elements in an array
+	// Parameters:
+	//   arr: The C-style array whose elements are to be averaged.
+	// Returns: The average of all elements in the array.
 	static double average(const T(&arr)[size])
 	{
 		T sumVal = sum(arr);
@@ -78,6 +92,10 @@ public:
 	}
 
 	// Check if a value is contained within an array
+	// Parameters:
+	//   arr: The C-style array to be searched.
+	//   value: The value to search for in the array.
+	// Returns: True if the value is found in the array, false otherwise.
 	static bool containsValue(const T(&arr)[size], const T& value)
 	{
 		for (const auto& element : arr)
@@ -91,6 +109,8 @@ public:
 	}
 
 	// Reverse the elements in an array
+	// Parameters:
+	//   arr: The C-style array whose elements are to be reversed.
 	static void reverse(T(&arr)[size])
 	{
 		size_t i = 0;
