@@ -1,8 +1,9 @@
 #pragma once
 
 /*
-	QuickSort efficiently sorts large datasets by recursively partitioning elements based on a chosen pivot.
-	It has an average time complexity of O(n log n) and is best suited for large datasets.
+	QuickSort efficiently sorts large datasets by recursively partitioning elements
+	based on a chosen pivot. It has an average time complexity of O(n log n) and is
+	best suited for large datasets.
 
 	Use QuickSort:
 	- When sorting large datasets efficiently is required.

@@ -1,6 +1,22 @@
 #pragma once
 
-// This class provides utility functions for working with C-style strings.
+
+/*
+	A utility class for working with C-style strings in C++.
+
+	StringUtils provides a set of static methods for performing common operations
+	on null-terminated character arrays (C-style strings).
+
+	This class is designed to offer convenience and efficiency when working with
+	C-style strings in C++ projects. It abstracts away the complexity of manual
+	memory management and provides a range of functionalities commonly found in
+	string manipulation libraries.
+
+	When using this class, it's important to ensure that input strings are properly
+	null-terminated to avoid undefined behavior. Additionally, some methods may
+	modify the input strings in place, so caution should be exercised when passing
+	string literals or constant strings.
+*/
 class StringUtils
 {
 public:

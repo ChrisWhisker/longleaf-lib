@@ -1,7 +1,22 @@
 #pragma once
 #include <iostream>
 
-// This class provides utility functions for working with C-style arrays.
+/*
+	A utility class providing functions for working with C-style arrays.
+
+	The ArrayUtils class contains static methods for common operations on
+	C-style arrays, including printing, finding the maximum and minimum elements,
+	calculating the sum and average of elements, checking for the presence of a value,
+	and reversing the elements.
+
+	This class is useful when dealing with fixed-size arrays where the size is known
+	at compile time. It simplifies common array operations and promotes code reuse.
+
+	When using this class, ensure that the array passed to its methods is properly
+	sized and not nullptr to avoid undefined behavior. Additionally, note that this
+	class is templated on both the data type and size of the array, providing flexibility
+	while maintaining type safety.
+*/
 template <typename T, size_t size>
 class ArrayUtils
 {

@@ -1,6 +1,22 @@
 #pragma once
 #include <cassert>
 
+/*
+    A stack implementation in C++ using an underlying dynamic array. The Stack
+    class provides functionality for creating and manipulating stacks of any
+    data type.
+
+    This class can be used in situations where a last-in, first-out (LIFO)
+    data structure is needed. It allows flexibility in storing and accessing
+    elements, while also providing efficient insertion and removal operations.
+
+    When using this class, it's important to note that manual memory management
+	is not required, as the Stack class internally manages memory through its
+    dependency on the Array class, which handles dynamic resizing and memory
+    allocation. However, users should exercise caution when accessing the
+    underlying data directly using the getData() method.
+
+*/
 template <typename T>
 class Stack
 {
