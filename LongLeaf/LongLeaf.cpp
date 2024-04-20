@@ -11,7 +11,7 @@ using std::cout;
 
 static void testArray()
 {
-	std::cout << "\nTESTING ARRAY CLASS\n";
+	cout << "\nTESTING ARRAY CLASS\n";
 	Array<int> arr(5);
 	arr.fill(10);
 	assert(arr.getSize() == 5); // Check if getSize() returns expected value
@@ -43,7 +43,7 @@ static void testArray()
 	assert(index == 2); // Check if find() returns correct index
 	size_t count = arr.count(10);
 	assert(count == 0); // Check if count() returns correct count
-	std::cout << "All Array tests passed!\n";
+	cout << "All Array tests passed!\n";
 }
 
 static void testLinkedList()
@@ -53,22 +53,25 @@ static void testLinkedList()
 	list.insertAtBeginning(1);
 	list.insertAtBeginning(2);
 	list.insertAtBeginning(3);
-	cout << "List after insertAtBeginning: ";
-	list.display(); // Expected output: 3 2 1
+	assert(strcmp(list.toString(), "3 2 1 ") == 0); // Compare C-style strings using strcmp
+
 	list.insertAtEnd(4);
 	list.insertAtEnd(5);
-	cout << "List after insertAtEnd: ";
-	list.display(); // Expected output: 3 2 1 4 5
+	assert(strcmp(list.toString(), "3 2 1 4 5 ") == 0); // Compare C-style strings using strcmp
+
 	list.insertAtPosition(10, 2);
-	cout << "List after insertAtPosition(10, 2): ";
-	list.display(); // Expected output: 3 2 10 1 4 5
+	assert(strcmp(list.toString(), "3 2 10 1 4 5 ") == 0); // Compare C-style strings using strcmp
+
 	list.remove(2);
-	cout << "List after remove(2): ";
-	list.display(); // Expected output: 3 10 1 4 5
+	assert(strcmp(list.toString(), "3 10 1 4 5 ") == 0); // Compare C-style strings using strcmp
+
 	list.removeAtPosition(3);
-	cout << "List after removeAtPosition(3): ";
-	list.display();     	 // Expected output: 3 10 4 5
-	cout << "Length of the list: " << list.length() << "\n"; // Expected output: 4
+	cout << "[" << list.toString() << "]\n";
+	assert(strcmp(list.toString(), "3 10 1 5 ") == 0); // Compare C-style strings using strcmp
+
+	assert(list.length() == 4);
+
+	cout << "All Linked List passed!\n";
 }
 
 static void testStack() {
@@ -109,7 +112,7 @@ static void testStack() {
 	// Test operator!=
 	assert(stack != otherStack); // Different stacks should not be equal
 	assert(!(stack != stack)); // Same stack should be equal
-	std::cout << "All Stack tests passed!\n";
+	cout << "All Stack tests passed!\n";
 }
 
 static void testBinarySearch()
@@ -172,7 +175,7 @@ static void testArrayUtils() {
 	// Test reverse
 	ArrayUtils<int, 5>::reverse(arr);
 	assert(arr[0] == 50 && arr[4] == 10);
-	std::cout << "All array utils tests passed!\n";
+	cout << "All Array Utils tests passed!\n";
 }
 
 static void testStringUtils()
@@ -182,39 +185,39 @@ static void testStringUtils()
 	const char* str2 = "World";
 
 	// Test StringUtils functions
-	std::cout << "Length of str1: " << StringUtils::length(str1) << std::endl;
-	std::cout << "Comparison of str1 and str2: " << StringUtils::compare(str1, str2) << std::endl;
+	cout << "Length of str1: " << StringUtils::length(str1) << std::endl;
+	cout << "Comparison of str1 and str2: " << StringUtils::compare(str1, str2) << std::endl;
 
 	char* concatStr = StringUtils::concatenate(str1, str2);
-	std::cout << "Concatenated string: " << concatStr << std::endl;
+	cout << "Concatenated string: " << concatStr << std::endl;
 	delete[] concatStr;
 
 	const char* subStr = StringUtils::substring(str1, 1, 3);
-	std::cout << "Substring of str1: " << subStr << std::endl;
+	cout << "Substring of str1: " << subStr << std::endl;
 
 	char upperStr[] = "hello";
 	StringUtils::toUpper(upperStr);
-	std::cout << "Uppercase of 'hello': " << upperStr << std::endl;
+	cout << "Uppercase of 'hello': " << upperStr << std::endl;
 
 	char lowerStr[] = "HELLO";
 	StringUtils::toLower(lowerStr);
-	std::cout << "Lowercase of 'HELLO': " << lowerStr << std::endl;
+	cout << "Lowercase of 'HELLO': " << lowerStr << std::endl;
 
 	const char* foundChar = StringUtils::findChar(str1, 'e');
 	if (foundChar)
-		std::cout << "Found character 'e' at index: " << (foundChar - str1) << std::endl;
+		cout << "Found character 'e' at index: " << (foundChar - str1) << std::endl;
 
 	const char* foundLastChar = StringUtils::findLastChar(str1, 'l');
 	if (foundLastChar)
-		std::cout << "Found last character 'l' at index: " << (foundLastChar - str1) << std::endl;
+		cout << "Found last character 'l' at index: " << (foundLastChar - str1) << std::endl;
 
 	char* copiedStr = StringUtils::copy(str1, 3);
-	std::cout << "Copied string: " << copiedStr << std::endl;
+	cout << "Copied string: " << copiedStr << std::endl;
 	delete[] copiedStr;
 
 	char reverseStr[] = "reverse";
 	StringUtils::reverse(reverseStr);
-	std::cout << "Reversed string: " << reverseStr << std::endl;
+	cout << "Reversed string: " << reverseStr << std::endl;
 }
 
 int main()
