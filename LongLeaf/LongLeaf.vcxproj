@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="DataStructures/Array.h" />
+    <ClInclude Include="DataStructures/Stack.h" />
     <ClInclude Include="Utils/ArrayUtils.h" />
     <ClInclude Include="Search/BinarySearch.h" />
     <ClInclude Include="DataStructures/LinkedList.h" />

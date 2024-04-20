@@ -1,5 +1,6 @@
 #include "DataStructures/Array.h"
 #include "DataStructures/LinkedList.h"
+#include "DataStructures/Stack.h"
 #include "Search/BinarySearch.h"
 #include "Sort/MergeSort.h"
 #include "Sort/QuickSort.h"
@@ -68,6 +69,47 @@ static void testLinkedList()
 	cout << "List after removeAtPosition(3): ";
 	list.display();     	 // Expected output: 3 10 4 5
 	cout << "Length of the list: " << list.length() << "\n"; // Expected output: 4
+}
+
+static void testStack() {
+	cout << "\nTESTING STACK\n";
+	// Test default constructor and isEmpty
+	Stack<int> stack;
+	assert(stack.isEmpty());
+	// Test push and top
+	stack.push(10);
+	assert(!stack.isEmpty());
+	assert(stack.top() == 10);
+	// Test size
+	assert(stack.size() == 1);
+	// Test push and top with more elements
+	stack.push(20);
+	stack.push(30);
+	assert(stack.top() == 30);
+	assert(stack.size() == 3);
+	// Test pop
+	stack.pop();
+	assert(stack.top() == 20);
+	assert(stack.size() == 2);
+	// Test clear and isEmpty
+	stack.clear();
+	assert(stack.isEmpty());
+	assert(stack.size() == 0);
+	// Test swap
+	Stack<int> otherStack;
+	otherStack.push(100);
+	otherStack.push(200);
+	swap(stack, otherStack);
+	assert(stack.size() == 2);
+	assert(otherStack.size() == 0);
+	assert(stack.top() == 200);
+	// Test operator==
+	assert(stack == stack); // Same stack should be equal
+	assert(!(stack == otherStack)); // Different stacks should not be equal
+	// Test operator!=
+	assert(stack != otherStack); // Different stacks should not be equal
+	assert(!(stack != stack)); // Same stack should be equal
+	std::cout << "All Stack tests passed!\n";
 }
 
 static void testBinarySearch()
@@ -180,6 +222,7 @@ int main()
 	// ********** DATA STRUCTURES **********
 	testArray();
 	testLinkedList();
+	testStack();
 
 	// ********** SEARCH **********
 	testBinarySearch();
