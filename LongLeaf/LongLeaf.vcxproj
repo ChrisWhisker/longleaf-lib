@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClInclude Include="DataStructures/Array.h" />
     <ClInclude Include="DataStructures/Stack.h" />
+    <ClInclude Include="Core/Tester.h" />
     <ClInclude Include="Utils/ArrayUtils.h" />
     <ClInclude Include="Search/BinarySearch.h" />
     <ClInclude Include="DataStructures/LinkedList.h" />
@@ -138,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LongLeaf.cpp" />
+    <ClCompile Include="Core/Tester.cpp" />
     <ClCompile Include="Utils/StringUtils.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -39,12 +39,18 @@
     <ClInclude Include="DataStructures/Stack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Core/Tester.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LongLeaf.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Utils/StringUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core/Tester.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
