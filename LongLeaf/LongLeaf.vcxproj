@@ -127,20 +127,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="DataStructures/Array.h" />
-    <ClInclude Include="DataStructures/Stack.h" />
-    <ClInclude Include="Core/Tester.h" />
-    <ClInclude Include="Utils/ArrayUtils.h" />
-    <ClInclude Include="Search/BinarySearch.h" />
-    <ClInclude Include="DataStructures/LinkedList.h" />
-    <ClInclude Include="Sort/MergeSort.h" />
-    <ClInclude Include="Sort/QuickSort.h" />
-    <ClInclude Include="Utils/StringUtils.h" />
+    <ClInclude Include="datastructures/Array.h" />
+    <ClInclude Include="datastructures/Stack.h" />
+    <ClInclude Include="core/Tester.h" />
+    <ClInclude Include="utils/ArrayUtils.h" />
+    <ClInclude Include="search/BinarySearch.h" />
+    <ClInclude Include="datastructures/LinkedList.h" />
+    <ClInclude Include="sort/MergeSort.h" />
+    <ClInclude Include="sort/QuickSort.h" />
+    <ClInclude Include="utils/StringUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LongLeaf.cpp" />
-    <ClCompile Include="Core/Tester.cpp" />
-    <ClCompile Include="Utils/StringUtils.cpp" />
+    <ClCompile Include="core/Tester.cpp" />
+    <ClCompile Include="utils/StringUtils.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -15,31 +15,31 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DataStructures/Array.h">
+    <ClInclude Include="datastructures/Array.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DataStructures/LinkedList.h">
+    <ClInclude Include="datastructures/LinkedList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Search/BinarySearch.h">
+    <ClInclude Include="search/BinarySearch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Sort/MergeSort.h">
+    <ClInclude Include="sort/MergeSort.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Sort/QuickSort.h">
+    <ClInclude Include="sort/QuickSort.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Utils/ArrayUtils.h">
+    <ClInclude Include="utils/ArrayUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Utils/StringUtils.h">
+    <ClInclude Include="utils/StringUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DataStructures/Stack.h">
+    <ClInclude Include="datastructures/Stack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Core/Tester.h">
+    <ClInclude Include="core/Tester.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -47,10 +47,10 @@
     <ClCompile Include="LongLeaf.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Utils/StringUtils.cpp">
+    <ClCompile Include="utils/StringUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Core/Tester.cpp">
+    <ClCompile Include="core/Tester.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
