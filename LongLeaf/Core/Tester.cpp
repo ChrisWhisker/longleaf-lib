@@ -40,11 +40,11 @@ namespace core
 		reversed.insert(2, 16);
 		assert(arr == reversed); // Check reversed array
 		arr.insert(2, 22);
-		int index = arr.find(22);
+		const int index = arr.find(22);
 		assert(index == 2); // Check if find() returns correct index
-		size_t count = arr.count(10);
+		const size_t count = arr.count(10);
 		assert(count == 0); // Check if count() returns correct count
-		std::cout << "All datastructures::Array tests passed!\n";
+		std::cout << "All Array tests passed!\n";
 	}
 
 	void Tester::testLinkedList()
@@ -110,7 +110,7 @@ namespace core
 		assert(stack.top() == 200);
 		// Test operator==
 		assert(stack == stack); // Same stack should be equal
-		assert(!(stack == otherStack)); // Different stacks should not be equal
+		assert(stack != otherStack); // Different stacks should not be equal
 		// Test operator!=
 		assert(stack != otherStack); // Different stacks should not be equal
 		assert(!(stack != stack)); // Same stack should be equal
@@ -121,10 +121,9 @@ namespace core
 	{
 		std::cout << "\nTESTING BINARY SEARCH\n";
 		char arr[] = { 'a', 'd', 'f', 'i', 'j', 'k', 'o', 'r', 'w', 'y' };
-		int size = sizeof(arr) / sizeof(arr[0]); // Calculate size of array
-		char target = 'k';
-		search::BinarySearch<char> bs;
-		int result = bs.binarySearch(arr, size, target);
+		constexpr int size = sizeof(arr) / sizeof(arr[0]); // Calculate size of array
+		constexpr char target = 'k';
+		const int result = search::BinarySearch<char>::binarySearch(arr, size, target);
 		if (result != -1)
 			std::cout << "Element found at index: " << result << "\n";
 		else
@@ -135,7 +134,7 @@ namespace core
 	{
 		std::cout << "\nTESTING MERGE SORT\n";
 		double arr[] = { 8.23, 3.14159, 0.5, 2.77, -88, 0.01, 42.113, -42.5, 290, -17.5, };
-		const int size = sizeof(arr) / sizeof(arr[0]);
+		constexpr int size = sizeof(arr) / sizeof(arr[0]);
 		std::cout << "Given array is \n";
 		utils::ArrayUtils<double, size>::print(arr);
 		sort::MergeSort<double> ms;
@@ -148,7 +147,7 @@ namespace core
 	{
 		std::cout << "\nTESTING QUICK SORT\n";
 		char arr[] = { 'y', '6', 'z', '4', 'x', '0', '5' };
-		const int size = sizeof(arr) / sizeof(arr[0]);
+		constexpr int size = sizeof(arr) / sizeof(arr[0]);
 		std::cout << "Original array: ";
 		sort::QuickSort<char> qs;
 		utils::ArrayUtils<char, size>::print(arr);
@@ -178,7 +177,7 @@ namespace core
 		// Test reverse
 		utils::ArrayUtils<int, 5>::reverse(arr);
 		assert(arr[0] == 50 && arr[4] == 10);
-		std::cout << "All datastructures::Array Utils tests passed!\n";
+		std::cout << "All Array Utils tests passed!\n";
 	}
 
 	void Tester::testStringUtils()
@@ -191,7 +190,7 @@ namespace core
 		std::cout << "Length of str1: " << utils::StringUtils::length(str1) << '\n';
 		std::cout << "Comparison of str1 and str2: " << utils::StringUtils::compare(str1, str2) << '\n';
 
-		char* concatStr = utils::StringUtils::concatenate(str1, str2);
+		const char* concatStr = utils::StringUtils::concatenate(str1, str2);
 		std::cout << "Concatenated string: " << concatStr << '\n';
 		delete[] concatStr;
 
@@ -214,7 +213,7 @@ namespace core
 		if (foundLastChar)
 			std::cout << "Found last character 'l' at index: " << (foundLastChar - str1) << '\n';
 
-		char* copiedStr = utils::StringUtils::copy(str1, 3);
+		const char* copiedStr = utils::StringUtils::copy(str1, 3);
 		std::cout << "Copied string: " << copiedStr << '\n';
 		delete[] copiedStr;
 

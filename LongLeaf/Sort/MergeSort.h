@@ -4,7 +4,7 @@ namespace sort
 {
 	/*
 		MergeSort is a stable sorting algorithm that divides the array into smaller
-		subarrays, sorts them independently, and then merges them back together. It
+		sub-arrays, sorts them independently, and then merges them back together. It
 		guarantees O(n log n) time complexity in all cases and is suitable for sorting
 		large datasets.
 
@@ -28,8 +28,8 @@ namespace sort
 		// Main function that sorts arr[leftIndex..rightIndex] using merge()
 		// Parameters:
 		//   arr: The array to be sorted.
-		//   leftIndex: The index of the first element of the array or subarray to be sorted.
-		//   rightIndex: The index of the last element of the array or subarray to be sorted.
+		//   leftIndex: The index of the first element of the array or sub-array to be sorted.
+		//   rightIndex: The index of the last element of the array or sub-array to be sorted.
 		void mergeSort(T arr[], int leftIndex, int rightIndex)
 		{
 			// Validate input parameters
@@ -41,7 +41,7 @@ namespace sort
 
 			if (leftIndex < rightIndex)
 			{
-				int middleIndex = leftIndex + (rightIndex - leftIndex) / 2;
+				const int middleIndex = leftIndex + (rightIndex - leftIndex) / 2;
 				mergeSort(arr, leftIndex, middleIndex);
 				mergeSort(arr, middleIndex + 1, rightIndex);
 				merge(arr, leftIndex, middleIndex, rightIndex);
@@ -49,14 +49,14 @@ namespace sort
 		}
 
 	private:
-		// Merge two subarrays of arr[]
-		// First subarray is arr[leftIndex..middleIndex]
-		// Second subarray is arr[middleIndex+1..rightIndex]
+		// Merge two sub-arrays of arr[]
+		// First sub-array is arr[leftIndex..middleIndex]
+		// Second sub-array is arr[middleIndex+1..rightIndex]
 		// Parameters:
-		//   arr: The array containing the subarrays to be merged.
-		//   leftIndex: The index of the first element of the left subarray.
-		//   middleIndex: The index of the last element of the left subarray.
-		//   rightIndex: The index of the last element of the right subarray.
+		//   arr: The array containing the sub-arrays to be merged.
+		//   leftIndex: The index of the first element of the left sub-array.
+		//   middleIndex: The index of the last element of the left sub-array.
+		//   rightIndex: The index of the last element of the right sub-array.
 		void merge(T arr[], int leftIndex, int middleIndex, int rightIndex)
 		{
 			// Validate input parameters
@@ -66,9 +66,9 @@ namespace sort
 				return;
 			}
 
-			// Calculate sizes of subarrays
-			int leftSize = middleIndex - leftIndex + 1;
-			int rightSize = rightIndex - middleIndex;
+			// Calculate sizes of sub-arrays
+			const int leftSize = middleIndex - leftIndex + 1;
+			const int rightSize = rightIndex - middleIndex;
 
 			// Create temporary arrays using dynamic memory allocation
 			T* leftArray = new T[leftSize];

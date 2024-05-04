@@ -1,6 +1,7 @@
 #pragma once
 
-namespace sort {
+namespace sort
+{
 	/*
 		QuickSort efficiently sorts large datasets by recursively partitioning elements
 		based on a chosen pivot. It has an average time complexity of O(n log n) and is
@@ -21,18 +22,18 @@ namespace sort {
 		// The main function that implements QuickSort
 		// Parameters:
 		//   arr: The array to be sorted.
-		//   low: The starting index of the array or subarray to be sorted.
-		//   high: The ending index of the array or subarray to be sorted.
+		//   low: The starting index of the array or sub-array to be sorted.
+		//   high: The ending index of the array or sub-array to be sorted.
 		void quickSort(T arr[], int low, int high)
 		{
-			if (low < high) // If there are more than one elements in the subarray
+			if (low < high) // If there are more than one elements in the sub-array
 			{
 				// arr[p] is now at right place
 				const int partitionIndex = partition(arr, low, high);
 
 				// Recursively sort elements before and after the partition
-				quickSort(arr, low, partitionIndex - 1); // Sort the left subarray
-				quickSort(arr, partitionIndex + 1, high); // Sort the right subarray
+				quickSort(arr, low, partitionIndex - 1); // Sort the left sub-array
+				quickSort(arr, partitionIndex + 1, high); // Sort the right sub-array
 			}
 		}
 
@@ -51,8 +52,8 @@ namespace sort {
 		// Rearrange the array so that elements smaller than pivot are on the left and larger than pivot are on the right
 		// Parameters:
 		//   arr: The array to be partitioned.
-		//   low: The starting index of the array or subarray to be partitioned.
-		//   high: The ending index of the array or subarray to be partitioned.
+		//   low: The starting index of the array or sub-array to be partitioned.
+		//   high: The ending index of the array or sub-array to be partitioned.
 		// Returns: The index of the pivot element after partitioning.
 		int partition(T arr[], int low, int high)
 		{

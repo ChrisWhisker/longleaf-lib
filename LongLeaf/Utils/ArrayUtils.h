@@ -1,7 +1,8 @@
 #pragma once
 #include <iostream>
 
-namespace utils {
+namespace utils
+{
 	/*
 		A utility class providing functions for working with C-style arrays.
 

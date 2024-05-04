@@ -1,7 +1,8 @@
 #pragma once
 #include <iostream>
 
-namespace datastructures {
+namespace datastructures
+{
 	/*
 		A singly linked list implementation in C++ using templates.
 
@@ -46,7 +47,7 @@ namespace datastructures {
 			// Delete all nodes to avoid memory leaks
 			while (head != nullptr)
 			{
-				Node* temp = head;
+				const Node* temp = head;
 				head = head->next;
 				delete temp;
 			}
@@ -149,7 +150,7 @@ namespace datastructures {
 			// If the value to remove is at the head, remove the head node
 			if (head->data == value)
 			{
-				Node* temp = head;
+				const Node* temp = head;
 				head = head->next;
 				delete temp;
 				return;
@@ -170,7 +171,7 @@ namespace datastructures {
 			}
 
 			// Remove the node with the value
-			Node* toDelete = current->next;
+			const Node* toDelete = current->next;
 			current->next = current->next->next;
 			delete toDelete;
 		}
@@ -198,7 +199,7 @@ namespace datastructures {
 			// If position is 0, remove the head node
 			if (position == 0)
 			{
-				Node* temp = head;
+				const Node* temp = head;
 				head = head->next;
 				delete temp;
 				return;
@@ -219,7 +220,7 @@ namespace datastructures {
 			}
 
 			// Remove the node at the specified position
-			Node* toDelete = current->next;
+			const Node* toDelete = current->next;
 			current->next = current->next->next;
 			delete toDelete;
 		}
@@ -254,7 +255,7 @@ namespace datastructures {
 		// Returns: A string representation of the list.
 		char* toString() const
 		{
-			const int BUFFER_SIZE = 100; // Define a buffer size for the character array
+			constexpr int BUFFER_SIZE = 100; // Define a buffer size for the character array
 			char* result = new char[BUFFER_SIZE]; // Allocate memory for the result
 			result[0] = '\0'; // Initialize the result string as an empty string
 

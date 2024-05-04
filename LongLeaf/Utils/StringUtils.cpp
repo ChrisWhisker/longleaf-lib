@@ -3,7 +3,8 @@
 #include <cctype> // Include for character handling functions
 #include <iostream>
 
-namespace utils {
+namespace utils
+{
 	size_t StringUtils::length(const char* str)
 	{
 		if (str == nullptr)		 // Check if the input string is nullptr
@@ -23,9 +24,9 @@ namespace utils {
 		if (str1 == nullptr || str2 == nullptr) // Check if either input string is nullptr
 			return nullptr;						// Return nullptr if either string is nullptr
 
-		size_t len1 = std::strlen(str1); // Calculate length of first string
-		size_t len2 = std::strlen(str2); // Calculate length of second string
-		size_t newLen = len1 + len2 + 1; // Calculate total length of concatenated string
+		const size_t len1 = std::strlen(str1); // Calculate length of first string
+		const size_t len2 = std::strlen(str2); // Calculate length of second string
+		const size_t newLen = len1 + len2 + 1; // Calculate total length of concatenated string
 
 		char* result = new char[newLen]; // Allocate memory for concatenated string
 		strcpy_s(result, newLen, str1);	 // Copy first string to result
@@ -48,7 +49,7 @@ namespace utils {
 		if (str == nullptr) // Check if input string is nullptr
 			return;			// Return if it is
 
-		size_t len = std::strlen(str);	 // Calculate length of string
+		const size_t len = std::strlen(str);	 // Calculate length of string
 		for (size_t i = 0; i < len; ++i) // Iterate over each character in the string
 		{
 			str[i] = std::toupper(static_cast<unsigned char>(str[i])); // Convert character to uppercase
@@ -60,7 +61,7 @@ namespace utils {
 		if (str == nullptr) // Check if input string is nullptr
 			return;			// Return if it is
 
-		size_t len = std::strlen(str);	 // Calculate length of string
+		const size_t len = std::strlen(str);	 // Calculate length of string
 		for (size_t i = 0; i < len; ++i) // Iterate over each character in the string
 		{
 			str[i] = std::tolower(static_cast<unsigned char>(str[i])); // Convert character to lowercase
@@ -100,7 +101,7 @@ namespace utils {
 		if (str == nullptr) // Check if input string is nullptr
 			return;			// Return if it is
 
-		size_t len = std::strlen(str);		 // Calculate length of string
+		const size_t len = std::strlen(str);		 // Calculate length of string
 		for (size_t i = 0; i < len / 2; ++i) // Iterate over first half of string
 		{
 			std::swap(str[i], str[len - i - 1]); // Swap characters to reverse the string

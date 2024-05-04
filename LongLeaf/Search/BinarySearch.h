@@ -1,6 +1,7 @@
 #pragma once
 
-namespace search {
+namespace search
+{
 	/*
 		Binary Search is a search algorithm that efficiently locates a target value
 		within a sorted array by repeatedly dividing the search interval in half. It
@@ -30,7 +31,7 @@ namespace search {
 		//   size: The number of elements in the array.
 		//   target: The value to be searched for.
 		// Returns: The index of the target value if found, or -1 if not found.
-		int binarySearch(T arr[], int size, T target)
+		static int binarySearch(T arr[], int size, T target)
 		{
 			// Input validation
 			if (arr == nullptr || size <= 0)

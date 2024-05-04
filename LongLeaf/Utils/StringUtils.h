@@ -1,6 +1,7 @@
 #pragma once
 
-namespace utils {
+namespace utils
+{
 	/*
 		A utility class for working with C-style strings in C++.
 

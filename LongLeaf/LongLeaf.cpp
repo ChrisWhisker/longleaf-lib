@@ -1,5 +1,4 @@
 #include "Core/Tester.h"
-#include <iostream>
 
 int main()
 {
