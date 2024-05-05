@@ -41,15 +41,15 @@ namespace utils
 		// Returns: The maximum element found in the array.
 		static T max(const T(&arr)[size])
 		{
-			T maxElement = arr[0];
+			T max_element = arr[0];
 			for (size_t i = 1; i < size; ++i)
 			{
-				if (arr[i] > maxElement)
+				if (arr[i] > max_element)
 				{
-					maxElement = arr[i];
+					max_element = arr[i];
 				}
 			}
-			return maxElement;
+			return max_element;
 		}
 
 		// Find the minimum element in an array
@@ -58,15 +58,15 @@ namespace utils
 		// Returns: The minimum element found in the array.
 		static T min(const T(&arr)[size])
 		{
-			T minElement = arr[0];
+			T min_element = arr[0];
 			for (size_t i = 1; i < size; ++i)
 			{
-				if (arr[i] < minElement)
+				if (arr[i] < min_element)
 				{
-					minElement = arr[i];
+					min_element = arr[i];
 				}
 			}
-			return minElement;
+			return min_element;
 		}
 
 		// Calculate the sum of elements in an array
@@ -89,8 +89,8 @@ namespace utils
 		// Returns: The average of all elements in the array.
 		static double average(const T(&arr)[size])
 		{
-			T sumVal = sum(arr);
-			return static_cast<double>(sumVal) / size;
+			T sum_val = sum(arr);
+			return static_cast<double>(sum_val) / size;
 		}
 
 		// Check if a value is contained within an array

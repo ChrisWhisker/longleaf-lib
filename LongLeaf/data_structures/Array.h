@@ -101,22 +101,22 @@ namespace data_structures
         {
             if (newSize == size) return; // If the size is unchanged, do nothing
 
-            T* newData = new T[newSize];
+            T* p_new_data = new T[newSize];
 
             // Copy elements up to the minimum of the old and new size
-            size_t minSize = std::min(size, newSize);
-            std::copy(p_data, p_data + minSize, newData);
+            size_t min_size = std::min(size, newSize);
+            std::copy(p_data, p_data + min_size, p_new_data);
 
             // Initialize new elements to default value for type T if size is increased
             if (newSize > size)
             {
                 for (size_t i = size; i < newSize; ++i)
-                    newData[i] = T();
+                    p_new_data[i] = T();
             }
 
             // Update array pointer and size
             delete[] p_data;
-            p_data = newData;
+            p_data = p_new_data;
             size = newSize;
         }
 

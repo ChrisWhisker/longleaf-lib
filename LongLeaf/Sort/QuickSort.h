@@ -29,24 +29,24 @@ namespace sort
 			if (low < high) // If there are more than one elements in the sub-array
 			{
 				// arr[p] is now at right place
-				const int partitionIndex = partition(arr, low, high);
+				const int partition_index = partition(arr, low, high);
 
 				// Recursively sort elements before and after the partition
-				quick_sort(arr, low, partitionIndex - 1); // Sort the left sub-array
-				quick_sort(arr, partitionIndex + 1, high); // Sort the right sub-array
+				quick_sort(arr, low, partition_index - 1); // Sort the left sub-array
+				quick_sort(arr, partition_index + 1, high); // Sort the right sub-array
 			}
 		}
 
 	private:
 		// Swap two elements in the array
 		// Parameters:
-		//   a: Pointer to the first element to be swapped.
-		//   b: Pointer to the second element to be swapped.
-		void swap(T* a, T* b) noexcept
+		//   p_a: Pointer to the first element to be swapped.
+		//   p_b: Pointer to the second element to be swapped.
+		void swap(T* p_a, T* p_b) noexcept
 		{
-			const T temp = *a;
-			*a = *b;
-			*b = temp;
+			const T temp = *p_a;
+			*p_a = *p_b;
+			*p_b = temp;
 		}
 
 		// Rearrange the array so that elements smaller than pivot are on the left and larger than pivot are on the right

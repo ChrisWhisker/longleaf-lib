@@ -5,106 +5,106 @@
 
 namespace utils
 {
-	size_t StringUtils::length(const char* str)
+	size_t StringUtils::length(const char* p_str)
 	{
-		if (str == nullptr)		 // Check if the input string is nullptr
+		if (p_str == nullptr)		 // Check if the input string is nullptr
 			return 0;			 // Return 0 if it is
-		return std::strlen(str); // Otherwise, return the length of the string
+		return std::strlen(p_str); // Otherwise, return the length of the string
 	}
 
-	int StringUtils::compare(const char* str1, const char* str2)
+	int StringUtils::compare(const char* p_str1, const char* p_str2)
 	{
-		if (str1 == nullptr || str2 == nullptr) // Check if either input string is nullptr
+		if (p_str1 == nullptr || p_str2 == nullptr) // Check if either input string is nullptr
 			return -1;							// Return -1 if either string is nullptr
-		return std::strcmp(str1, str2);			// Otherwise, return the result of string comparison
+		return std::strcmp(p_str1, p_str2);			// Otherwise, return the result of string comparison
 	}
 
-	char* StringUtils::concatenate(const char* str1, const char* str2)
+	char* StringUtils::concatenate(const char* p_str1, const char* p_str2)
 	{
-		if (str1 == nullptr || str2 == nullptr) // Check if either input string is nullptr
+		if (p_str1 == nullptr || p_str2 == nullptr) // Check if either input string is nullptr
 			return nullptr;						// Return nullptr if either string is nullptr
 
-		const size_t len1 = std::strlen(str1); // Calculate length of first string
-		const size_t len2 = std::strlen(str2); // Calculate length of second string
-		const size_t newLen = len1 + len2 + 1; // Calculate total length of concatenated string
+		const size_t len1 = std::strlen(p_str1); // Calculate length of first string
+		const size_t len2 = std::strlen(p_str2); // Calculate length of second string
+		const size_t new_len = len1 + len2 + 1; // Calculate total length of concatenated string
 
-		char* result = new char[newLen]; // Allocate memory for concatenated string
-		strcpy_s(result, newLen, str1);	 // Copy first string to result
-		strcat_s(result, newLen, str2);	 // Append second string to result
+		char* p_result = new char[new_len]; // Allocate memory for concatenated string
+		strcpy_s(p_result, new_len, p_str1);	 // Copy first string to result
+		strcat_s(p_result, new_len, p_str2);	 // Append second string to result
 
-		return result; // Return pointer to concatenated string
+		return p_result; // Return pointer to concatenated string
 	}
 
-	const char* StringUtils::substring(const char* str, size_t start, size_t length)
+	const char* StringUtils::substring(const char* p_str, size_t start, size_t length)
 	{
-		if (str == nullptr || start >= std::strlen(str) || start + length > std::strlen(str))
+		if (p_str == nullptr || start >= std::strlen(p_str) || start + length > std::strlen(p_str))
 			// Check if input string is nullptr or if start and length are out of bounds
 			return nullptr; // Return nullptr if any condition is met
 
-		return str + start; // Return pointer to start of substring
+		return p_str + start; // Return pointer to start of substring
 	}
 
-	void StringUtils::to_upper(char* str)
+	void StringUtils::to_upper(char* p_str)
 	{
-		if (str == nullptr) // Check if input string is nullptr
+		if (p_str == nullptr) // Check if input string is nullptr
 			return;			// Return if it is
 
-		const size_t len = std::strlen(str);	 // Calculate length of string
+		const size_t len = std::strlen(p_str);	 // Calculate length of string
 		for (size_t i = 0; i < len; ++i) // Iterate over each character in the string
 		{
-			str[i] = std::toupper(static_cast<unsigned char>(str[i])); // Convert character to uppercase
+			p_str[i] = std::toupper(static_cast<unsigned char>(p_str[i])); // Convert character to uppercase
 		}
 	}
 
-	void StringUtils::to_lower(char* str)
+	void StringUtils::to_lower(char* p_str)
 	{
-		if (str == nullptr) // Check if input string is nullptr
+		if (p_str == nullptr) // Check if input string is nullptr
 			return;			// Return if it is
 
-		const size_t len = std::strlen(str);	 // Calculate length of string
+		const size_t len = std::strlen(p_str);	 // Calculate length of string
 		for (size_t i = 0; i < len; ++i) // Iterate over each character in the string
 		{
-			str[i] = std::tolower(static_cast<unsigned char>(str[i])); // Convert character to lowercase
+			p_str[i] = std::tolower(static_cast<unsigned char>(p_str[i])); // Convert character to lowercase
 		}
 	}
 
-	const char* StringUtils::find_char(const char* str, char ch)
+	const char* StringUtils::find_char(const char* p_str, char ch)
 	{
-		if (str == nullptr) // Check if input string is nullptr
+		if (p_str == nullptr) // Check if input string is nullptr
 			return nullptr; // Return nullptr if it is
 
-		return std::strchr(str, ch); // Find first occurrence of character in string
+		return std::strchr(p_str, ch); // Find first occurrence of character in string
 	}
 
-	const char* StringUtils::find_last_char(const char* str, char ch)
+	const char* StringUtils::find_last_char(const char* p_str, char ch)
 	{
-		if (str == nullptr) // Check if input string is nullptr
+		if (p_str == nullptr) // Check if input string is nullptr
 			return nullptr; // Return nullptr if it is
 
-		return std::strrchr(str, ch); // Find last occurrence of character in string
+		return std::strrchr(p_str, ch); // Find last occurrence of character in string
 	}
 
-	char* StringUtils::copy(const char* source, size_t length)
+	char* StringUtils::copy(const char* p_source, size_t length)
 	{
-		if (source == nullptr) // Check if input string is nullptr
+		if (p_source == nullptr) // Check if input string is nullptr
 			return nullptr;	 // Return nullptr if it is
 
-		char* result = new char[length + 1];		 // Allocate memory for copied string
-		strncpy_s(result, length + 1, source, length); // Copy portion of source string to result
-		result[length] = '\0';						 // Null-terminate result string
+		char* p_result = new char[length + 1];		 // Allocate memory for copied string
+		strncpy_s(p_result, length + 1, p_source, length); // Copy portion of p_source string to result
+		p_result[length] = '\0';						 // Null-terminate result string
 
-		return result; // Return pointer to copied string
+		return p_result; // Return pointer to copied string
 	}
 
-	void StringUtils::reverse(char* str)
+	void StringUtils::reverse(char* p_str)
 	{
-		if (str == nullptr) // Check if input string is nullptr
+		if (p_str == nullptr) // Check if input string is nullptr
 			return;			// Return if it is
 
-		const size_t len = std::strlen(str);		 // Calculate length of string
+		const size_t len = std::strlen(p_str);		 // Calculate length of string
 		for (size_t i = 0; i < len / 2; ++i) // Iterate over first half of string
 		{
-			std::swap(str[i], str[len - i - 1]); // Swap characters to reverse the string
+			std::swap(p_str[i], p_str[len - i - 1]); // Swap characters to reverse the string
 		}
 	}
 }

@@ -47,9 +47,9 @@ namespace data_structures
 			// Delete all nodes to avoid memory leaks
 			while (p_head != nullptr)
 			{
-				const Node* temp = p_head;
+				const Node* p_temp = p_head;
 				p_head = p_head->p_next;
-				delete temp;
+				delete p_temp;
 			}
 		}
 
@@ -114,24 +114,24 @@ namespace data_structures
 			}
 
 			// Traverse to the node before the specified position
-			Node* newNode = new Node(value);
-			Node* current = p_head;
-			for (int i = 0; i < position - 1 && current != nullptr; ++i)
+			Node* p_new_node = new Node(value);
+			Node* p_current = p_head;
+			for (int i = 0; i < position - 1 && p_current != nullptr; ++i)
 			{
-				current = current->p_next;
+				p_current = p_current->p_next;
 			}
 
 			// If position is out of range, print error message and return
-			if (current == nullptr)
+			if (p_current == nullptr)
 			{
 				std::cerr << "Position out of range\n";
-				delete newNode;
+				delete p_new_node;
 				return;
 			}
 
 			// Insert the new node at the specified position
-			newNode->p_next = current->p_next;
-			current->p_next = newNode;
+			p_new_node->p_next = p_current->p_next;
+			p_current->p_next = p_new_node;
 		}
 
 		// Remove the first occurrence of a value from the list
@@ -150,9 +150,9 @@ namespace data_structures
 			// If the value to remove is at the p_head, remove the p_head node
 			if (p_head->data == value)
 			{
-				const Node* temp = p_head;
+				const Node* p_temp = p_head;
 				p_head = p_head->p_next;
-				delete temp;
+				delete p_temp;
 				return;
 			}
 
@@ -171,9 +171,9 @@ namespace data_structures
 			}
 
 			// Remove the node with the value
-			const Node* toDelete = p_current->p_next;
+			const Node* p_to_delete = p_current->p_next;
 			p_current->p_next = p_current->p_next->p_next;
-			delete toDelete;
+			delete p_to_delete;
 		}
 
 		// Remove a node at a specified position in the list
@@ -199,30 +199,30 @@ namespace data_structures
 			// If position is 0, remove the p_head node
 			if (position == 0)
 			{
-				const Node* temp = p_head;
+				const Node* p_temp = p_head;
 				p_head = p_head->p_next;
-				delete temp;
+				delete p_temp;
 				return;
 			}
 
 			// Traverse to the node before the specified position
-			Node* current = p_head;
-			for (int i = 0; i < position - 1 && current != nullptr; ++i)
+			Node* p_current = p_head;
+			for (int i = 0; i < position - 1 && p_current != nullptr; ++i)
 			{
-				current = current->p_next;
+				p_current = p_current->p_next;
 			}
 
 			// If position is out of range, print error message and return
-			if (current == nullptr || current->p_next == nullptr)
+			if (p_current == nullptr || p_current->p_next == nullptr)
 			{
 				std::cerr << "Position out of range\n";
 				return;
 			}
 
 			// Remove the node at the specified position
-			const Node* toDelete = current->p_next;
-			current->p_next = current->p_next->p_next;
-			delete toDelete;
+			const Node* p_to_delete = p_current->p_next;
+			p_current->p_next = p_current->p_next->p_next;
+			delete p_to_delete;
 		}
 
 		// Get the length of the list
@@ -230,11 +230,11 @@ namespace data_structures
 		int length() const
 		{
 			int len = 0;
-			Node* current = p_head;
-			while (current != nullptr)
+			Node* p_current = p_head;
+			while (p_current != nullptr)
 			{
 				len++;
-				current = current->p_next;
+				p_current = p_current->p_next;
 			}
 			return len;
 		}
@@ -242,11 +242,11 @@ namespace data_structures
 		// Display the list
 		void display() const
 		{
-			Node* current = p_head;
-			while (current != nullptr)
+			Node* p_current = p_head;
+			while (p_current != nullptr)
 			{
-				std::cout << current->p_data << " ";
-				current = current->p_next;
+				std::cout << p_current->p_data << " ";
+				p_current = p_current->p_next;
 			}
 			std::cout << "\n";
 		}
@@ -256,21 +256,21 @@ namespace data_structures
 		char* to_string() const
 		{
 			constexpr int BUFFER_SIZE = 100; // Define a buffer size for the character array
-			char* result = new char[BUFFER_SIZE]; // Allocate memory for the result
-			result[0] = '\0'; // Initialize the result string as an empty string
+			char* p_result = new char[BUFFER_SIZE]; // Allocate memory for the result
+			p_result[0] = '\0'; // Initialize the result string as an empty string
 
-			Node* current = p_head;
-			while (current != nullptr)
+			Node* p_current = p_head;
+			while (p_current != nullptr)
 			{
 				char temp[BUFFER_SIZE] = { 0 }; // Temporary buffer for converting p_data to string
-				_itoa_s(current->data, temp, BUFFER_SIZE, 10); // Convert p_data to string (assuming integers)
-				strcat_s(result, BUFFER_SIZE, temp); // Concatenate temp to result
-				strcat_s(result, BUFFER_SIZE, " "); // Add space between elements
+				_itoa_s(p_current->data, temp, BUFFER_SIZE, 10); // Convert p_data to string (assuming integers)
+				strcat_s(p_result, BUFFER_SIZE, temp); // Concatenate temp to result
+				strcat_s(p_result, BUFFER_SIZE, " "); // Add space between elements
 
-				current = current->p_next;
+				p_current = p_current->p_next;
 			}
 
-			return result; // Return the result string
+			return p_result; // Return the result string
 		}
 	};
 }

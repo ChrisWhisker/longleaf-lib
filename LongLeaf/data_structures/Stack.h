@@ -26,7 +26,7 @@ namespace data_structures
 
 	public:
 		// Constructor
-		Stack() {}
+		Stack() = default;
 
 		// Destructor is automatically generated and will call the destructor of Array
 

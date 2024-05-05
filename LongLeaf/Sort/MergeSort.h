@@ -41,10 +41,10 @@ namespace sort
 
 			if (leftIndex < rightIndex)
 			{
-				const int middleIndex = leftIndex + (rightIndex - leftIndex) / 2;
-				merge_sort(arr, leftIndex, middleIndex);
-				merge_sort(arr, middleIndex + 1, rightIndex);
-				merge(arr, leftIndex, middleIndex, rightIndex);
+				const int middle_index = leftIndex + (rightIndex - leftIndex) / 2;
+				merge_sort(arr, leftIndex, middle_index);
+				merge_sort(arr, middle_index + 1, rightIndex);
+				merge(arr, leftIndex, middle_index, rightIndex);
 			}
 		}
 
@@ -67,49 +67,49 @@ namespace sort
 			}
 
 			// Calculate sizes of sub-arrays
-			const int leftSize = middleIndex - leftIndex + 1;
-			const int rightSize = rightIndex - middleIndex;
+			const int left_size = middleIndex - leftIndex + 1;
+			const int right_size = rightIndex - middleIndex;
 
 			// Create temporary arrays using dynamic memory allocation
-			T* leftArray = new T[leftSize];
-			T* rightArray = new T[rightSize];
+			T* p_left_array = new T[left_size];
+			T* p_right_array = new T[right_size];
 
 			// Check if memory allocation was successful
-			if (leftArray == nullptr || rightArray == nullptr)
+			if (p_left_array == nullptr || p_right_array == nullptr)
 			{
 				// Handle memory allocation failure
-				delete[] leftArray;
-				delete[] rightArray;
+				delete[] p_left_array;
+				delete[] p_right_array;
 				return;
 			}
 
 			// Copy p_data to temporary arrays
-			for (int i = 0; i < leftSize; i++)
-				leftArray[i] = arr[leftIndex + i];
-			for (int j = 0; j < rightSize; j++)
-				rightArray[j] = arr[middleIndex + 1 + j];
+			for (int i = 0; i < left_size; i++)
+				p_left_array[i] = arr[leftIndex + i];
+			for (int j = 0; j < right_size; j++)
+				p_right_array[j] = arr[middleIndex + 1 + j];
 
 			// Merge the temporary arrays back into arr[leftIndex..rightIndex]
 			int i = 0, j = 0, k = leftIndex;
-			while (i < leftSize && j < rightSize)
+			while (i < left_size && j < right_size)
 			{
-				if (leftArray[i] <= rightArray[j])
-					arr[k++] = leftArray[i++];
+				if (p_left_array[i] <= p_right_array[j])
+					arr[k++] = p_left_array[i++];
 				else
-					arr[k++] = rightArray[j++];
+					arr[k++] = p_right_array[j++];
 			}
 
 			// Copy remaining elements of leftArray[], if any
-			while (i < leftSize)
-				arr[k++] = leftArray[i++];
+			while (i < left_size)
+				arr[k++] = p_left_array[i++];
 
 			// Copy remaining elements of rightArray[], if any
-			while (j < rightSize)
-				arr[k++] = rightArray[j++];
+			while (j < right_size)
+				arr[k++] = p_right_array[j++];
 
 			// Free dynamically allocated memory
-			delete[] leftArray;
-			delete[] rightArray;
+			delete[] p_left_array;
+			delete[] p_right_array;
 		}
 	};
 }
