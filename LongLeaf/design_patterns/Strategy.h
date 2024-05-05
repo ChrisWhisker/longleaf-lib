@@ -34,7 +34,6 @@ namespace design_patterns
     class UppercaseFormatter : public TextFormatter
     {
     public:
-        // Function to format text to uppercase
         std::string format(const std::string& text) const override;
     };
 
@@ -42,22 +41,6 @@ namespace design_patterns
     class LowercaseFormatter : public TextFormatter
     {
     public:
-        // Function to format text to lowercase
         std::string format(const std::string& text) const override;
     };
-
-    // Context class
-    class TextProcessor
-    {
-    private:
-        TextFormatter* m_formatter; // Pointer to TextFormatter
-
-    public:
-        // Constructor accepting a TextFormatter pointer
-        TextProcessor(TextFormatter* formatter);
-        // Setter function to change the formatter
-        void setFormatter(TextFormatter* formatter);
-        // Function to process text using the current formatter
-        std::string process(const std::string& text) const;
-    };
-} // namespace design_patterns
+}

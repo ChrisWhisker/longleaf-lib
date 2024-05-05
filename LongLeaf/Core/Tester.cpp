@@ -45,7 +45,7 @@ namespace core
         assert(index == 2); // Check if find() returns correct index
         const size_t count = arr.count(10);
         assert(count == 0); // Check if count() returns correct count
-        std::cout << "All Array tests passed!\n";
+        std::cout << "All array tests passed!\n";
     }
 
     void Tester::test_linked_list()
@@ -68,12 +68,11 @@ namespace core
         assert(strcmp(list.to_string(), "3 10 1 4 5 ") == 0); // Compare C-style strings
 
         list.remove_at_position(3);
-        std::cout << "[" << list.to_string() << "]\n";
         assert(strcmp(list.to_string(), "3 10 1 5 ") == 0); // Compare C-style strings
 
         assert(list.length() == 4);
 
-        std::cout << "All Linked List tests passed!\n";
+        std::cout << "All linked list tests passed!\n";
     }
 
     void Tester::test_stack()
@@ -115,7 +114,7 @@ namespace core
         // Test operator!=
         assert(stack != other_stack); // Different stacks should not be equal
         assert(stack == stack); // Same stack should be equal
-        std::cout << "All Stack tests passed!\n";
+        std::cout << "All stack tests passed!\n";
     }
 
     void Tester::test_binary_search()
@@ -125,15 +124,8 @@ namespace core
         constexpr int size = sizeof(arr) / sizeof(arr[0]); // Determine size of array
         constexpr char target = 'k';
         const int result = search::BinarySearch<char>::binary_search(arr, size, target);
-        if (result == -1)
-        {
-            std::cout << "Element not found"
-                << "\n";
-        }
-        else
-        {
-            std::cout << "Element found at index: " << result << "\n";
-        }
+        assert(result != -1);
+        std::cout << "All binary search tests passed!\n";
     }
 
     void Tester::test_merge_sort()
@@ -242,23 +234,19 @@ namespace core
     void Tester::test_strategy_pattern()
     {
         std::cout << "\nTESTING STRATEGY PATTERN\n";
-        // Define the input text to be processed
-        const std::string input_text = "Hello, World!";
-        // Initialize a formatter for uppercase
-        design_patterns::UppercaseFormatter uppercase_formatter;
-        // Initialize a text processor with the uppercase formatter
-        design_patterns::TextProcessor text_processor(&uppercase_formatter);
-        // Process the input text using the uppercase formatter
-        std::string formatted_text = text_processor.process(input_text);
-        // Assertion to ensure correct uppercase formatting
-        assert(formatted_text == "HELLO, WORLD!");
-        // Change the formatter to lowercase
-        design_patterns::LowercaseFormatter lowercase_formatter;
-        text_processor.setFormatter(&lowercase_formatter);
-        // Process the input text using the lowercase formatter
-        formatted_text = text_processor.process(input_text);
-        // Assertion to ensure correct lowercase formatting
-        assert(formatted_text == "hello, world!");
+        // Create instances of formatters
+        const design_patterns::UppercaseFormatter upper_formatter;
+        const design_patterns::LowercaseFormatter lower_formatter;
+
+        // Test uppercase_formatter
+        assert(upper_formatter.format("hello, world!") == "HELLO, WORLD!");
+        assert(upper_formatter.format("HeLLo") == "HELLO");
+        assert(upper_formatter.format("").empty());
+
+        // Test lowercase_formatter
+        assert(lower_formatter.format("HELLO, WORLD!") == "hello, world!");
+        assert(lower_formatter.format("HeLLo") == "hello");
+        assert(lower_formatter.format("").empty());
         std::cout << "All strategy pattern tests passed!\n";
     }
 }

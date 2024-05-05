@@ -25,21 +25,4 @@ namespace design_patterns
         }
         return formatted_text;
     }
-
-    // Implementation of TextProcessor constructor
-    TextProcessor::TextProcessor(TextFormatter* formatter) : m_formatter(formatter)
-    {
-    }
-
-    // Implementation of TextProcessor::setFormatter
-    void TextProcessor::setFormatter(TextFormatter* formatter)
-    {
-        this->m_formatter = formatter;
-    }
-
-    // Implementation of TextProcessor::process
-    std::string TextProcessor::process(const std::string& text) const
-    {
-        return m_formatter->format(text);
-    }
-} // namespace design_patterns
+}
