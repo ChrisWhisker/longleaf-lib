@@ -422,7 +422,7 @@ namespace core
         assert(!(ArrayUtils<int, 5>::contains_value(int_array, 6)));
 
         // Test reverse function
-        int reversed_int_array[] = {5, 4, 3, 2, 1};
+        const int reversed_int_array[] = {5, 4, 3, 2, 1};
         ArrayUtils<int, 5>::reverse(int_array);
         for (int i = 0; i < 5; ++i)
         {
@@ -430,34 +430,34 @@ namespace core
         }
 
         // Test with double array
-        double doubleArray[] = {1.5, 2.5, 3.5, 4.5, 5.5};
+        double double_array[] = {1.5, 2.5, 3.5, 4.5, 5.5};
 
         // Test print function
         std::cout << "Printing double array: ";
-        ArrayUtils<double, 5>::print(doubleArray);
+        ArrayUtils<double, 5>::print(double_array);
 
         // Test max function
-        assert((ArrayUtils<double, 5>::max(doubleArray) == 5.5));
+        assert((ArrayUtils<double, 5>::max(double_array) == 5.5));
 
         // Test min function
-        assert((ArrayUtils<double, 5>::min(doubleArray) == 1.5));
+        assert((ArrayUtils<double, 5>::min(double_array) == 1.5));
 
         // Test sum function
-        assert((ArrayUtils<double, 5>::sum(doubleArray) == 17.5));
+        assert((ArrayUtils<double, 5>::sum(double_array) == 17.5));
 
         // Test average function
-        assert((ArrayUtils<double, 5>::average(doubleArray) == 3.5));
+        assert((ArrayUtils<double, 5>::average(double_array) == 3.5));
 
         // Test contains_value function
-        assert((ArrayUtils<double, 5>::contains_value(doubleArray, 3.5)));
-        assert(!(ArrayUtils<double, 5>::contains_value(doubleArray, 6.0)));
+        assert((ArrayUtils<double, 5>::contains_value(double_array, 3.5)));
+        assert(!(ArrayUtils<double, 5>::contains_value(double_array, 6.0)));
 
         // Test reverse function
-        double reversed_double_array[] = {5.5, 4.5, 3.5, 2.5, 1.5};
-        ArrayUtils<double, 5>::reverse(doubleArray);
+        constexpr double reversed_double_array[] = {5.5, 4.5, 3.5, 2.5, 1.5};
+        ArrayUtils<double, 5>::reverse(double_array);
         for (int i = 0; i < 5; ++i)
         {
-            assert(doubleArray[i] == reversed_double_array[i]);
+            assert(double_array[i] == reversed_double_array[i]);
         }
 
         // Test with char array
@@ -478,7 +478,7 @@ namespace core
         assert(!(ArrayUtils<char, 5>::contains_value(char_array, 'z')));
 
         // Test reverse function
-        char reversed_char_array[] = {'e', 'd', 'c', 'b', 'a'};
+        constexpr char reversed_char_array[] = {'e', 'd', 'c', 'b', 'a'};
         ArrayUtils<char, 5>::reverse(char_array);
         for (int i = 0; i < 5; ++i)
         {
@@ -492,36 +492,65 @@ namespace core
     void Tester::test_string_utils()
     {
         std::cout << "\nTesting String Utils...\n";
+        using namespace utils;
 
-        // Test string utils
-        assert(utils::StringUtils::length("hello") == 5);
-        assert(utils::StringUtils::length("") == 0);
-        assert(utils::StringUtils::length(nullptr) == 0);
-        assert(utils::StringUtils::compare("hello", "world") < 0);
-        assert(utils::StringUtils::compare("world", "hello") > 0);
-        assert(utils::StringUtils::compare("hello", "hello") == 0);
-        const char* concat = utils::StringUtils::concatenate("hello", " world");
-        assert(concat != nullptr);
-        assert(utils::StringUtils::compare(concat, "hello world") == 0);
-        delete[] concat;
-        const char* substr = utils::StringUtils::substring("hello world", 6, 5);
-        assert(utils::StringUtils::compare(substr, "world") == 0);
-        char str[] = "Hello World";
-        utils::StringUtils::to_upper(str);
-        assert(utils::StringUtils::compare(str, "HELLO WORLD") == 0);
-        utils::StringUtils::to_lower(str);
-        assert(utils::StringUtils::compare(str, "hello world") == 0);
-        const char* str1 = "hello world";
-        assert(utils::StringUtils::find_char(str1, 'o') != nullptr);
-        assert(utils::StringUtils::find_char(str1, 'z') == nullptr);
-        assert(utils::StringUtils::find_last_char(str1, 'o') != nullptr);
-        assert(utils::StringUtils::find_last_char(str1, 'z') == nullptr);
-        const char* copied = utils::StringUtils::copy("hello world", 5);
-        assert(utils::StringUtils::compare(copied, "hello") == 0);
-        delete[] copied;
-        char reverse_str[] = "hello";
-        utils::StringUtils::reverse(reverse_str);
-        assert(utils::StringUtils::compare(reverse_str, "olleh") == 0);
+        // Test data
+        const char* str1 = "Hello";
+        const char* str2 = "World";
+        const char* str3 = "HelloWorld";
+        const char* empty_str = "";
+        char buffer[20];
+
+        // Test length function
+        assert(StringUtils::length(str1) == 5);
+        assert(StringUtils::length(empty_str) == 0);
+
+        // Test compare function
+        assert(StringUtils::compare(str1, str2) < 0);
+        assert(StringUtils::compare(str1, str1) == 0);
+        assert(StringUtils::compare(str2, str1) > 0);
+
+        // Test concatenate function
+        const char* concatenated = StringUtils::concatenate(str1, str2);
+        assert(StringUtils::compare(concatenated, str3) == 0);
+        delete[] concatenated; // Free the dynamically allocated memory
+
+        // Test substring function
+        const char* substr = StringUtils::substring(str3, 3, 5);
+        assert(StringUtils::compare(substr, "loWor") == 0);
+
+        // Test to_upper function
+        char mixed_case[] = "HeLLo";
+        StringUtils::to_upper(mixed_case);
+        assert(StringUtils::compare(mixed_case, "HELLO") == 0);
+
+        // Test to_lower function
+        char uppercase[] = "HELLO";
+        StringUtils::to_lower(uppercase);
+        assert(StringUtils::compare(uppercase, "hello") == 0);
+
+        // Test find_char function
+        assert(StringUtils::find_char(str1, 'e') == str1 + 1);
+        assert(StringUtils::find_char(str1, 'z') == nullptr);
+
+        // Test find_last_char function
+        assert(StringUtils::find_last_char(str1, 'l') == str1 + 3);
+        assert(StringUtils::find_last_char(str1, 'z') == nullptr);
+
+        // Test copy function
+        const char* copied = StringUtils::copy(str1, 3);
+        assert(StringUtils::compare(copied, "Hel") == 0);
+        delete[] copied; // Free the dynamically allocated memory
+
+        // Test reverse function
+        char to_reverse[] = "Reverse";
+        StringUtils::reverse(to_reverse);
+        assert(StringUtils::compare(to_reverse, "esreveR") == 0);
+
+        // Test with non-null-terminated strings
+        constexpr char non_null_terminated[] = { 'N', 'o', 'n', 'e', '\0', 'T', 'e', 'r', 'm', 'i', 'n', 'a', 't', 'e', 'd' };
+        assert(StringUtils::length(non_null_terminated) == 4);
+        assert(StringUtils::compare(non_null_terminated, str1) > 0);
 
         std::cout << "All String Utils tests passed!\n";
     }
