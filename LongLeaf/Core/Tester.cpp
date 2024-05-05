@@ -2,6 +2,7 @@
 #include "../data_structures/Array.h"
 #include "../data_structures/LinkedList.h"
 #include "../data_structures/Stack.h"
+#include "../design_patterns/Strategy.h"
 #include "../search/BinarySearch.h"
 #include "../sort/MergeSort.h"
 #include "../sort/QuickSort.h"
@@ -236,5 +237,28 @@ namespace core
         char reverse_str[] = "reverse";
         utils::StringUtils::reverse(reverse_str);
         std::cout << "Reversed string: " << reverse_str << '\n';
+    }
+    
+    void Tester::test_strategy_pattern()
+    {
+        std::cout << "\nTESTING STRATEGY PATTERN\n";
+        // Define the input text to be processed
+        const std::string input_text = "Hello, World!";
+        // Initialize a formatter for uppercase
+        design_patterns::UppercaseFormatter uppercase_formatter;
+        // Initialize a text processor with the uppercase formatter
+        design_patterns::TextProcessor text_processor(&uppercase_formatter);
+        // Process the input text using the uppercase formatter
+        std::string formatted_text = text_processor.process(input_text);
+        // Assertion to ensure correct uppercase formatting
+        assert(formatted_text == "HELLO, WORLD!");
+        // Change the formatter to lowercase
+        design_patterns::LowercaseFormatter lowercase_formatter;
+        text_processor.setFormatter(&lowercase_formatter);
+        // Process the input text using the lowercase formatter
+        formatted_text = text_processor.process(input_text);
+        // Assertion to ensure correct lowercase formatting
+        assert(formatted_text == "hello, world!");
+        std::cout << "All strategy pattern tests passed!\n";
     }
 }

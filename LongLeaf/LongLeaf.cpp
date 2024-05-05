@@ -17,4 +17,7 @@ int main()
 	// ********** UTILS **********
 	core::Tester::test_array_utils();
 	core::Tester::test_string_utils();
+
+	// ********** DESIGN PATTERNS **********
+	core::Tester::test_strategy_pattern();
 }

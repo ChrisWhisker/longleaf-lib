@@ -1,7 +1,5 @@
 #pragma once
 
-#include <iostream>
-
 namespace core
 {
     class Tester
@@ -15,5 +13,6 @@ namespace core
         static void test_quick_sort();
         static void test_array_utils();
         static void test_string_utils();
+        static void test_strategy_pattern();
     };
 }
