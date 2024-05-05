@@ -37,11 +37,25 @@ namespace utils
 
     const char* StringUtils::substring(const char* p_str, size_t start, size_t length)
     {
-        if (p_str == nullptr || start >= std::strlen(p_str) || start + length > std::strlen(p_str))
-            // Check if input string is nullptr or if start and length are out of bounds
-            return nullptr; // Return nullptr if any condition is met
+        if (p_str == nullptr) // Check if input string is nullptr
+            return nullptr; // Return nullptr if it is
 
-        return p_str + start; // Return pointer to start of substring
+        size_t str_length = std::strlen(p_str); // Calculate length of the string once
+
+        if (start >= str_length) // Check if start is out of bounds
+            return nullptr; // Return nullptr if it is
+
+        // Adjust length if it exceeds the remaining length of the string
+        length = std::min(length, str_length - start);
+
+        // Allocate memory for the substring
+        char* result = new char[length + 1];
+
+        // Copy the substring
+        strncpy_s(result, length + 1, p_str + start, length);
+        result[length] = '\0'; // Null-terminate the substring
+
+        return result; // Return pointer to the substring
     }
 
     void StringUtils::to_upper(char* p_str)
