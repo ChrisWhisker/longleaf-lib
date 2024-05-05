@@ -13,7 +13,7 @@ namespace core
 {
     void Tester::test_array()
     {
-        std::cout << "\nTESTING ARRAY CLASS\n";
+        std::cout << "\nTesting Array class...\n";
         data_structures::Array<int> arr(5);
         arr.fill(10);
         assert(arr.get_size() == 5); // Check if get_size() returns expected value
@@ -50,7 +50,7 @@ namespace core
 
     void Tester::test_linked_list()
     {
-        std::cout << "\nTESTING LINKED LIST\n";
+        std::cout << "\nTesting Linked List...\n";
         data_structures::LinkedList<int> list;
         list.insert_at_beginning(1);
         list.insert_at_beginning(2);
@@ -77,7 +77,7 @@ namespace core
 
     void Tester::test_stack()
     {
-        std::cout << "\nTESTING STACK\n";
+        std::cout << "\nTesting Stack...\n";
         // Test default constructor and isEmpty
         data_structures::Stack<int> stack;
         assert(stack.is_empty());
@@ -119,7 +119,7 @@ namespace core
 
     void Tester::test_binary_search()
     {
-        std::cout << "\nTESTING BINARY SEARCH\n";
+        std::cout << "\nTesting Binary Search...\n";
         char arr[] = {'a', 'd', 'f', 'i', 'j', 'k', 'o', 'r', 'w', 'y'};
         constexpr int size = sizeof(arr) / sizeof(arr[0]); // Determine size of array
         constexpr char target = 'k';
@@ -144,34 +144,41 @@ namespace core
             -17.5,
         };
         constexpr int size = sizeof(arr) / sizeof(arr[0]);
-        std::cout << "Given array is \n";
-        utils::ArrayUtils<double, size>::print(arr);
+
         sort::MergeSort<double> ms;
         ms.merge_sort(arr, 0, size - 1);
-        std::cout << "Sorted array is \n";
-        utils::ArrayUtils<double, size>::print(arr);
+
+        // Assert to check if the array is sorted
+        for (int i = 0; i < size - 1; ++i)
+        {
+            assert("Array is sorted" && (arr[i] <= arr[i + 1]));
+        }
+        std::cout << "All merge sort tests passed!\n";
     }
+
 
     void Tester::test_quick_sort()
     {
-        std::cout << "\nTESTING QUICK SORT\n";
+        std::cout << "\nTesting Quick Sort...\n";
         char arr[] = {'y', '6', 'z', '4', 'x', '0', '5'};
         constexpr int size = sizeof(arr) / sizeof(arr[0]);
-        std::cout << "Original array: ";
+
         sort::QuickSort<char> qs;
-        utils::ArrayUtils<char, size>::print(arr);
         qs.quick_sort(arr, 0, size - 1);
-        std::cout << "Sorted array: ";
-        utils::ArrayUtils<char, size>::print(arr);
+
+        // Assert to check if the array is sorted
+        for (int i = 0; i < size - 1; ++i)
+        {
+            assert("Array is sorted" && (arr[i] <= arr[i + 1]));
+        }
+        std::cout << "All quick sort tests passed!\n";
     }
 
     void Tester::test_array_utils()
     {
-        std::cout << "\nTESTING ARRAY UTILS\n";
+        std::cout << "\nTesting Array Utils...\n";
         // Test array
         int arr[] = {10, 20, 30, 40, 50};
-        // Test print
-        utils::ArrayUtils<int, 5>::print(arr);
         // Test max
         assert((utils::ArrayUtils<int, 5>::max(arr)) == 50);
         // Test min
@@ -191,49 +198,56 @@ namespace core
 
     void Tester::test_string_utils()
     {
-        std::cout << "\nTESTING STRING UTILS\n";
-        const char* p_str1 = "Hello";
-        const char* p_str2 = "World";
+        std::cout << "\nTesting String Utils...\n";
+        // Test StringUtils::length()
+        assert(utils::StringUtils::length("hello") == 5);
+        assert(utils::StringUtils::length("") == 0);
+        assert(utils::StringUtils::length(nullptr) == 0);
 
-        // Test utils::StringUtils functions
-        std::cout << "Length of str1: " << utils::StringUtils::length(p_str1) << '\n';
-        std::cout << "Comparison of str1 and str2: " << utils::StringUtils::compare(p_str1, p_str2) << '\n';
+        // Test StringUtils::compare()
+        assert(utils::StringUtils::compare("hello", "world") < 0);
+        assert(utils::StringUtils::compare("world", "hello") > 0);
+        assert(utils::StringUtils::compare("hello", "hello") == 0);
 
-        const char* p_concat_str = utils::StringUtils::concatenate(p_str1, p_str2);
-        std::cout << "Concatenated string: " << p_concat_str << '\n';
-        delete[] p_concat_str;
+        // Test StringUtils::concatenate()
+        char* concat = utils::StringUtils::concatenate("hello", " world");
+        assert(concat != nullptr);
+        assert(utils::StringUtils::compare(concat, "hello world") == 0);
+        delete[] concat;
 
-        const char* p_sub_str = utils::StringUtils::substring(p_str1, 1, 3);
-        std::cout << "Substring of str1: " << p_sub_str << '\n';
+        // Test StringUtils::substring()
+        const char* substr = utils::StringUtils::substring("hello world", 6, 5);
+        assert(utils::StringUtils::compare(substr, "world") == 0);
 
-        char upper_str[] = "hello";
-        utils::StringUtils::to_upper(upper_str);
-        std::cout << "Uppercase of 'hello': " << upper_str << '\n';
+        // Test StringUtils::to_upper() and StringUtils::to_lower()
+        char str[] = "Hello World";
+        utils::StringUtils::to_upper(str);
+        assert(utils::StringUtils::compare(str, "HELLO WORLD") == 0);
+        utils::StringUtils::to_lower(str);
+        assert(utils::StringUtils::compare(str, "hello world") == 0);
 
-        char lower_str[] = "HELLO";
-        utils::StringUtils::to_lower(lower_str);
-        std::cout << "Lowercase of 'HELLO': " << lower_str << '\n';
+        // Test StringUtils::find_char() and StringUtils::find_last_char()
+        const char* str1 = "hello world";
+        assert(utils::StringUtils::find_char(str1, 'o') != nullptr);
+        assert(utils::StringUtils::find_char(str1, 'z') == nullptr);
+        assert(utils::StringUtils::find_last_char(str1, 'o') != nullptr);
+        assert(utils::StringUtils::find_last_char(str1, 'z') == nullptr);
 
-        const char* p_found_char = utils::StringUtils::find_char(p_str1, 'e');
-        if (p_found_char)
-            std::cout << "Found character 'e' at index: " << (p_found_char - p_str1) << '\n';
+        // Test StringUtils::copy()
+        char* copied = utils::StringUtils::copy("hello world", 5);
+        assert(utils::StringUtils::compare(copied, "hello") == 0);
+        delete[] copied;
 
-        const char* p_found_last_char = utils::StringUtils::find_last_char(p_str1, 'l');
-        if (p_found_last_char)
-            std::cout << "Found last character 'l' at index: " << (p_found_last_char - p_str1) << '\n';
-
-        const char* p_copied_str = utils::StringUtils::copy(p_str1, 3);
-        std::cout << "Copied string: " << p_copied_str << '\n';
-        delete[] p_copied_str;
-
-        char reverse_str[] = "reverse";
-        utils::StringUtils::reverse(reverse_str);
-        std::cout << "Reversed string: " << reverse_str << '\n';
+        // Test StringUtils::reverse()
+        char reverseStr[] = "hello";
+        utils::StringUtils::reverse(reverseStr);
+        assert(utils::StringUtils::compare(reverseStr, "olleh") == 0);
+        std::cout << "All String Utils tests passed!\n";
     }
-    
+
     void Tester::test_strategy_pattern()
     {
-        std::cout << "\nTESTING STRATEGY PATTERN\n";
+        std::cout << "\nTesting Strategy Pattern...\n";
         // Create instances of formatters
         const design_patterns::UppercaseFormatter upper_formatter;
         const design_patterns::LowercaseFormatter lower_formatter;
