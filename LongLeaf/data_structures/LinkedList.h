@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <sstream>
 
 namespace data_structures
 {
@@ -259,22 +260,24 @@ namespace data_structures
         // Returns: A string representation of the list.
         char* to_string() const
         {
-            constexpr int BUFFER_SIZE = 100; // Define a buffer size for the character array
-            char* result = new char[BUFFER_SIZE]; // Allocate memory for the result
-            result[0] = '\0'; // Initialize the result string as an empty string
+            constexpr int BUFFER_SIZE = 100;
+            char* result = new char[BUFFER_SIZE];
+            result[0] = '\0';
 
             Node* current = head;
             while (current != nullptr)
             {
-                char temp[BUFFER_SIZE] = {0}; // Temporary buffer for converting data to string
-                _itoa_s(current->data, temp, BUFFER_SIZE, 10); // Convert data to string (assuming integers)
-                strcat_s(result, BUFFER_SIZE, temp); // Concatenate temp to result
-                strcat_s(result, BUFFER_SIZE, " "); // Add space between elements
+                std::stringstream ss;
+                ss << current->data; // Stream data into stringstream
+
+                // Append stringstream content to result
+                strcat_s(result, BUFFER_SIZE, ss.str().c_str());
+                strcat_s(result, BUFFER_SIZE, " ");
 
                 current = current->next;
             }
 
-            return result; // Return the result string
+            return result;
         }
     };
 }
