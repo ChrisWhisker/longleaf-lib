@@ -1,7 +1,7 @@
 #pragma once
 #include <cassert>
 
-namespace datastructures
+namespace data_structures
 {
 	/*
 		A stack implementation in C++ using an underlying dynamic array. The Stack

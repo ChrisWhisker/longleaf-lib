@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="datastructures/Array.h">
+    <ClInclude Include="data_structures/Array.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="datastructures/LinkedList.h">
+    <ClInclude Include="data_structures/LinkedList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="search/BinarySearch.h">
@@ -36,7 +36,7 @@
     <ClInclude Include="utils/StringUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="datastructures/Stack.h">
+    <ClInclude Include="data_structures/Stack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="core/Tester.h">

@@ -1,19 +1,19 @@
 #include "Tester.h"
-#include "../DataStructures/Array.h"
-#include "../DataStructures/LinkedList.h"
-#include "../DataStructures/Stack.h"
-#include "../Search/BinarySearch.h"
-#include "../Sort/MergeSort.h"
-#include "../Sort/QuickSort.h"
-#include "../Utils/ArrayUtils.h"
-#include "../Utils/StringUtils.h"
+#include "../data_structures/Array.h"
+#include "../data_structures/LinkedList.h"
+#include "../data_structures/Stack.h"
+#include "../search/BinarySearch.h"
+#include "../sort/MergeSort.h"
+#include "../sort/QuickSort.h"
+#include "../utils/ArrayUtils.h"
+#include "../utils/StringUtils.h"
 
 namespace core
 {
 	void Tester::testArray()
 	{
 		std::cout << "\nTESTING ARRAY CLASS\n";
-		datastructures::Array<int> arr(5);
+		data_structures::Array<int> arr(5);
 		arr.fill(10);
 		assert(arr.getSize() == 5); // Check if getSize() returns expected value
 		assert(arr[2] == 10); // Check if value at index 2 is set correctly
@@ -34,7 +34,7 @@ namespace core
 		arr.resize(2);
 		arr.insert(0, 16);
 		arr.reverse();
-		datastructures::Array<int> reversed(0);
+		data_structures::Array<int> reversed(0);
 		reversed.insert(0, 9);
 		reversed.insert(1, 9);
 		reversed.insert(2, 16);
@@ -50,7 +50,7 @@ namespace core
 	void Tester::testLinkedList()
 	{
 		std::cout << "\nTESTING LINKED LIST\n";
-		datastructures::LinkedList<int> list;
+		data_structures::LinkedList<int> list;
 		list.insertAtBeginning(1);
 		list.insertAtBeginning(2);
 		list.insertAtBeginning(3);
@@ -79,7 +79,7 @@ namespace core
 	{
 		std::cout << "\nTESTING STACK\n";
 		// Test default constructor and isEmpty
-		datastructures::Stack<int> stack;
+		data_structures::Stack<int> stack;
 		assert(stack.isEmpty());
 		// Test push and top
 		stack.push(10);
@@ -101,7 +101,7 @@ namespace core
 		assert(stack.isEmpty());
 		assert(stack.size() == 0);
 		// Test swap
-		datastructures::Stack<int> otherStack;
+		data_structures::Stack<int> otherStack;
 		otherStack.push(100);
 		otherStack.push(200);
 		swap(stack, otherStack);

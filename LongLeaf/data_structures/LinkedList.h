@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 
-namespace datastructures
+namespace data_structures
 {
 	/*
 		A singly linked list implementation in C++ using templates.

@@ -3,7 +3,7 @@
 #include <iostream>
 #include <stdexcept> // for std::out_of_range exception
 
-namespace datastructures
+namespace data_structures
 {
     /*
         A dynamic array implementation in C++ using raw pointers.
