@@ -12,6 +12,24 @@ The purpose of this repository is twofold:
 
 2. **Educational Resource:** Developers can use this repository as a learning resource to understand the inner workings of common data structures, algorithms, and design patterns in C++. By examining the code and studying the provided implementations, developers can enhance their understanding of fundamental concepts in computer science and software engineering.
 
+## Classes
+
+- Data Structures
+  - [Array](/LongLeaf/data_structures/Array.h)
+  - [Linked list](/LongLeaf/data_structures/LinkedList.h)
+  - [Stack](/LongLeaf/data_structures/Stack.hh)
+- Algorithms
+  - Searching
+    - [Binary search](/LongLeaf/search/BinarySearch.h)
+  - Sorting
+    - [Merge sort](/LongLeaf/sort/MergeSort.h)
+    - [Quick sort](/LongLeaf/sort/QuickSort.h)
+- Utilities
+  - [Array Utils](/LongLeaf/utils/ArrayUtils.h)
+  - [String Utils](/LongLeaf/utils/StringUtils.h)
+- Design Patterns
+  - [Strategy pattern](/LongLeaf/design_patterns/Strategy.h)
+
 ## Key Features
 
 - **Memory-Efficient Implementations:** The implementations emphasize efficient memory usage, making them suitable for resource-constrained environments or situations where manual memory management is desired.
@@ -19,12 +37,6 @@ The purpose of this repository is twofold:
 - **Reduced Dependencies:** The codebase minimizes dependencies on the C++ STL, providing alternative solutions for scenarios where standard library support may be limited or unavailable.
 
 - **Focus on Common Data Structures, Algorithms, and Design Patterns:** In addition to data structures and algorithms, this repository includes examples of common design pattern implementations, enriching the learning experience for developers.
-
-## How to Use
-
-1. Clone the repository.
-2. Explore the provided header files and source code to understand the implementations.
-3. Integrate the desired data structures, algorithms, and design patterns into your projects as needed, ensuring compatibility with your specific requirements and constraints.
 
 ## Contributions
 
