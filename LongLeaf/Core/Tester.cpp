@@ -67,15 +67,15 @@ namespace core
         }
 
         // Test find() function
-        Array<int> findArr(5);
-        for (size_t i = 0; i < findArr.get_size(); ++i)
+        Array<int> find_arr(5);
+        for (size_t i = 0; i < find_arr.get_size(); ++i)
         {
-            findArr[i] = static_cast<int>(i * 2);
+            find_arr[i] = static_cast<int>(i * 2);
         }
-        assert(findArr.find(4) == 2);
+        assert(find_arr.find(4) == 2);
 
         // Test count() function
-        assert(findArr.count(4) == 1);
+        assert(find_arr.count(4) == 1);
 
         // Test swap() function
         Array<int> arr1(3);
@@ -121,7 +121,6 @@ namespace core
         int_list.insert_at_beginning(10);
         assert(!int_list.is_empty());
         assert(int_list.length() == 1);
-        // std::cout << "[" << int_list.to_string() << "]";
         assert(strcmp(int_list.to_string(), "10 ") == 0);
 
         // Test insert_at_end() function
@@ -242,8 +241,8 @@ namespace core
 
         // Test get_data()
         stack.push(50);
-        int* data = stack.get_data();
-        assert(*data == 30);
+        int* p_data = stack.get_data();
+        assert(*p_data == 30);
 
         // Clean up
         stack.clear();
@@ -400,34 +399,34 @@ namespace core
         using namespace utils;
 
         // Test with int array
-        int intArray[] = {1, 2, 3, 4, 5};
+        int int_array[] = {1, 2, 3, 4, 5};
 
         // Test print function
         std::cout << "Printing int array: ";
-        ArrayUtils<int, 5>::print(intArray);
+        ArrayUtils<int, 5>::print(int_array);
 
         // Test max function
-        assert((ArrayUtils<int, 5>::max(intArray)) == 5);
+        assert((ArrayUtils<int, 5>::max(int_array)) == 5);
 
         // Test min function
-        assert((ArrayUtils<int, 5>::min(intArray)) == 1);
+        assert((ArrayUtils<int, 5>::min(int_array)) == 1);
 
         // Test sum function
-        assert((ArrayUtils<int, 5>::sum(intArray)) == 15);
+        assert((ArrayUtils<int, 5>::sum(int_array)) == 15);
 
         // Test average function
-        assert((ArrayUtils<int, 5>::average(intArray)) == 3.0);
+        assert((ArrayUtils<int, 5>::average(int_array)) == 3.0);
 
         // Test contains_value function
-        assert((ArrayUtils<int, 5>::contains_value(intArray, 3)));
-        assert(!(ArrayUtils<int, 5>::contains_value(intArray, 6)));
+        assert((ArrayUtils<int, 5>::contains_value(int_array, 3)));
+        assert(!(ArrayUtils<int, 5>::contains_value(int_array, 6)));
 
         // Test reverse function
-        int reversedIntArray[] = {5, 4, 3, 2, 1};
-        ArrayUtils<int, 5>::reverse(intArray);
+        int reversed_int_array[] = {5, 4, 3, 2, 1};
+        ArrayUtils<int, 5>::reverse(int_array);
         for (int i = 0; i < 5; ++i)
         {
-            assert(intArray[i] == reversedIntArray[i]);
+            assert(int_array[i] == reversed_int_array[i]);
         }
 
         // Test with double array
@@ -454,36 +453,36 @@ namespace core
         assert(!(ArrayUtils<double, 5>::contains_value(doubleArray, 6.0)));
 
         // Test reverse function
-        double reversedDoubleArray[] = {5.5, 4.5, 3.5, 2.5, 1.5};
+        double reversed_double_array[] = {5.5, 4.5, 3.5, 2.5, 1.5};
         ArrayUtils<double, 5>::reverse(doubleArray);
         for (int i = 0; i < 5; ++i)
         {
-            assert(doubleArray[i] == reversedDoubleArray[i]);
+            assert(doubleArray[i] == reversed_double_array[i]);
         }
 
         // Test with char array
-        char charArray[] = {'a', 'b', 'c', 'd', 'e'};
+        char char_array[] = {'a', 'b', 'c', 'd', 'e'};
 
         // Test print function
         std::cout << "Printing char array: ";
-        ArrayUtils<char, 5>::print(charArray);
+        ArrayUtils<char, 5>::print(char_array);
 
         // Test max function
-        assert((ArrayUtils<char, 5>::max(charArray) == 'e'));
+        assert((ArrayUtils<char, 5>::max(char_array) == 'e'));
 
         // Test min function
-        assert((ArrayUtils<char, 5>::min(charArray) == 'a'));
+        assert((ArrayUtils<char, 5>::min(char_array) == 'a'));
 
         // Test contains_value function
-        assert((ArrayUtils<char, 5>::contains_value(charArray, 'c')));
-        assert(!(ArrayUtils<char, 5>::contains_value(charArray, 'z')));
+        assert((ArrayUtils<char, 5>::contains_value(char_array, 'c')));
+        assert(!(ArrayUtils<char, 5>::contains_value(char_array, 'z')));
 
         // Test reverse function
-        char reversedCharArray[] = {'e', 'd', 'c', 'b', 'a'};
-        ArrayUtils<char, 5>::reverse(charArray);
+        char reversed_char_array[] = {'e', 'd', 'c', 'b', 'a'};
+        ArrayUtils<char, 5>::reverse(char_array);
         for (int i = 0; i < 5; ++i)
         {
-            assert(charArray[i] == reversedCharArray[i]);
+            assert(char_array[i] == reversed_char_array[i]);
         }
 
         std::cout << "All Array Utils tests passed!\n";
@@ -501,7 +500,7 @@ namespace core
         assert(utils::StringUtils::compare("hello", "world") < 0);
         assert(utils::StringUtils::compare("world", "hello") > 0);
         assert(utils::StringUtils::compare("hello", "hello") == 0);
-        char* concat = utils::StringUtils::concatenate("hello", " world");
+        const char* concat = utils::StringUtils::concatenate("hello", " world");
         assert(concat != nullptr);
         assert(utils::StringUtils::compare(concat, "hello world") == 0);
         delete[] concat;
@@ -517,12 +516,12 @@ namespace core
         assert(utils::StringUtils::find_char(str1, 'z') == nullptr);
         assert(utils::StringUtils::find_last_char(str1, 'o') != nullptr);
         assert(utils::StringUtils::find_last_char(str1, 'z') == nullptr);
-        char* copied = utils::StringUtils::copy("hello world", 5);
+        const char* copied = utils::StringUtils::copy("hello world", 5);
         assert(utils::StringUtils::compare(copied, "hello") == 0);
         delete[] copied;
-        char reverseStr[] = "hello";
-        utils::StringUtils::reverse(reverseStr);
-        assert(utils::StringUtils::compare(reverseStr, "olleh") == 0);
+        char reverse_str[] = "hello";
+        utils::StringUtils::reverse(reverse_str);
+        assert(utils::StringUtils::compare(reverse_str, "olleh") == 0);
 
         std::cout << "All String Utils tests passed!\n";
     }
@@ -537,26 +536,26 @@ namespace core
         const LowercaseFormatter lower_formatter;
 
         // Test cases
-        std::string inputText = "Hello World!";
-        std::string expectedUpper = "HELLO WORLD!";
-        std::string expectedLower = "hello world!";
+        std::string input_text = "Hello World!";
+        std::string expected_upper = "HELLO WORLD!";
+        std::string expected_lower = "hello world!";
 
         // Test UppercaseFormatter
-        assert(upper_formatter.format(inputText) == expectedUpper);
+        assert(upper_formatter.format(input_text) == expected_upper);
 
         // Test LowercaseFormatter
-        assert(lower_formatter.format(inputText) == expectedLower);
+        assert(lower_formatter.format(input_text) == expected_lower);
 
         // Additional test cases
-        inputText = "This Is a TeSt StrIng";
-        expectedUpper = "THIS IS A TEST STRING";
-        expectedLower = "this is a test string";
+        input_text = "This Is a TeSt StrIng";
+        expected_upper = "THIS IS A TEST STRING";
+        expected_lower = "this is a test string";
 
         // Test UppercaseFormatter with different input
-        assert(upper_formatter.format(inputText) == expectedUpper);
+        assert(upper_formatter.format(input_text) == expected_upper);
 
         // Test LowercaseFormatter with different input
-        assert(lower_formatter.format(inputText) == expectedLower);
+        assert(lower_formatter.format(input_text) == expected_lower);
 
         std::cout << "All Strategy Pattern tests passed!\n";
     }
