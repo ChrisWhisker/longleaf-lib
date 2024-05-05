@@ -10,7 +10,7 @@ namespace data_structures
 
         The Array class provides functionality similar to std::vector, allowing
         dynamic resizing, element access, insertion, removal, and other common
-        operations on a sequence of integers.
+        operations on a sequence of elements.
 
         This class can be used in situations where a dynamically resizable array
         is needed, but the overhead of std::vector or other standard containers
@@ -134,7 +134,7 @@ namespace data_structures
             return size == 0;
         }
 
-        // Get a pointer to the underlying p_data (use with caution)
+        // Get a pointer to the underlying data (use with caution)
         T* get_data() const
         {
             return p_data;

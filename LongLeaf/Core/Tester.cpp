@@ -15,7 +15,7 @@ namespace core
         std::cout << "\nTESTING ARRAY CLASS\n";
         data_structures::Array<int> arr(5);
         arr.fill(10);
-        assert(arr.get_size() == 5); // Check if getSize() returns expected value
+        assert(arr.get_size() == 5); // Check if get_size() returns expected value
         assert(arr[2] == 10); // Check if value at index 2 is set correctly
         arr[2] = 20;
         assert(arr[2] == 20); // Check if value at index 2 is updated correctly
@@ -72,7 +72,7 @@ namespace core
 
         assert(list.length() == 4);
 
-        std::cout << "All Linked List passed!\n";
+        std::cout << "All Linked List tests passed!\n";
     }
 
     void Tester::test_stack()
@@ -121,7 +121,7 @@ namespace core
     {
         std::cout << "\nTESTING BINARY SEARCH\n";
         char arr[] = {'a', 'd', 'f', 'i', 'j', 'k', 'o', 'r', 'w', 'y'};
-        constexpr int size = sizeof(arr) / sizeof(arr[0]); // Calculate size of array
+        constexpr int size = sizeof(arr) / sizeof(arr[0]); // Determine size of array
         constexpr char target = 'k';
         const int result = search::BinarySearch<char>::binary_search(arr, size, target);
         if (result == -1)
