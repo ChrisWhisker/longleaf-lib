@@ -44,7 +44,7 @@ namespace utils
 		return str + start; // Return pointer to start of substring
 	}
 
-	void StringUtils::toUpper(char* str)
+	void StringUtils::to_upper(char* str)
 	{
 		if (str == nullptr) // Check if input string is nullptr
 			return;			// Return if it is
@@ -56,7 +56,7 @@ namespace utils
 		}
 	}
 
-	void StringUtils::toLower(char* str)
+	void StringUtils::to_lower(char* str)
 	{
 		if (str == nullptr) // Check if input string is nullptr
 			return;			// Return if it is
@@ -68,7 +68,7 @@ namespace utils
 		}
 	}
 
-	const char* StringUtils::findChar(const char* str, char ch)
+	const char* StringUtils::find_char(const char* str, char ch)
 	{
 		if (str == nullptr) // Check if input string is nullptr
 			return nullptr; // Return nullptr if it is
@@ -76,7 +76,7 @@ namespace utils
 		return std::strchr(str, ch); // Find first occurrence of character in string
 	}
 
-	const char* StringUtils::findLastChar(const char* str, char ch)
+	const char* StringUtils::find_last_char(const char* str, char ch)
 	{
 		if (str == nullptr) // Check if input string is nullptr
 			return nullptr; // Return nullptr if it is

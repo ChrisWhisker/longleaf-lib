@@ -30,7 +30,7 @@ namespace sort
 		//   arr: The array to be sorted.
 		//   leftIndex: The index of the first element of the array or sub-array to be sorted.
 		//   rightIndex: The index of the last element of the array or sub-array to be sorted.
-		void mergeSort(T arr[], int leftIndex, int rightIndex)
+		void merge_sort(T arr[], int leftIndex, int rightIndex)
 		{
 			// Validate input parameters
 			if (arr == nullptr || leftIndex < 0 || rightIndex < 0 || leftIndex >= rightIndex)
@@ -42,8 +42,8 @@ namespace sort
 			if (leftIndex < rightIndex)
 			{
 				const int middleIndex = leftIndex + (rightIndex - leftIndex) / 2;
-				mergeSort(arr, leftIndex, middleIndex);
-				mergeSort(arr, middleIndex + 1, rightIndex);
+				merge_sort(arr, leftIndex, middleIndex);
+				merge_sort(arr, middleIndex + 1, rightIndex);
 				merge(arr, leftIndex, middleIndex, rightIndex);
 			}
 		}
@@ -83,7 +83,7 @@ namespace sort
 				return;
 			}
 
-			// Copy data to temporary arrays
+			// Copy p_data to temporary arrays
 			for (int i = 0; i < leftSize; i++)
 				leftArray[i] = arr[leftIndex + i];
 			for (int j = 0; j < rightSize; j++)

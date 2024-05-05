@@ -31,7 +31,7 @@ namespace search
 		//   size: The number of elements in the array.
 		//   target: The value to be searched for.
 		// Returns: The index of the target value if found, or -1 if not found.
-		static int binarySearch(T arr[], int size, T target)
+		static int binary_search(T arr[], int size, T target)
 		{
 			// Input validation
 			if (arr == nullptr || size <= 0)

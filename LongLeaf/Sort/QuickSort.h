@@ -24,7 +24,7 @@ namespace sort
 		//   arr: The array to be sorted.
 		//   low: The starting index of the array or sub-array to be sorted.
 		//   high: The ending index of the array or sub-array to be sorted.
-		void quickSort(T arr[], int low, int high)
+		void quick_sort(T arr[], int low, int high)
 		{
 			if (low < high) // If there are more than one elements in the sub-array
 			{
@@ -32,8 +32,8 @@ namespace sort
 				const int partitionIndex = partition(arr, low, high);
 
 				// Recursively sort elements before and after the partition
-				quickSort(arr, low, partitionIndex - 1); // Sort the left sub-array
-				quickSort(arr, partitionIndex + 1, high); // Sort the right sub-array
+				quick_sort(arr, low, partitionIndex - 1); // Sort the left sub-array
+				quick_sort(arr, partitionIndex + 1, high); // Sort the right sub-array
 			}
 		}
 

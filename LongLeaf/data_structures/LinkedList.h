@@ -7,14 +7,14 @@ namespace data_structures
 		A singly linked list implementation in C++ using templates.
 
 		The LinkedList class provides functionality for creating and manipulating
-		singly linked lists of any data type. It supports operations such as insertion,
+		singly linked lists of any p_data type. It supports operations such as insertion,
 		removal, length retrieval, and display of elements in the list.
 
-		This class can be used in situations where a dynamic data structure for
+		This class can be used in situations where a dynamic p_data structure for
 		maintaining a collection of elements is needed. It allows flexibility in
 		storing and accessing elements, while also providing efficient insertion and
 		removal operations. Additionally, the use of templates allows the LinkedList
-		class to work with any data type.
+		class to work with any p_data type.
 
 		When using this class, it's important to note that manual memory management
 		is required, as the LinkedList class uses raw pointers for node allocation
@@ -28,76 +28,76 @@ namespace data_structures
 		struct Node
 		{
 			T data;	 // Data stored in the node
-			Node* next; // Pointer to the next node in the list
+			Node* p_next; // Pointer to the p_next node in the list
 			// Constructor for the node
 			// Parameters:
-			//   value: The data to be stored in the node.
-			Node(const T& value) : data(value), next(nullptr) {}
+			//   value: The p_data to be stored in the node.
+			Node(const T& value) : data(value), p_next(nullptr) {}
 		};
 
-		Node* head; // Pointer to the head of the list
+		Node* p_head; // Pointer to the p_head of the list
 
 	public:
 		// Constructor
-		LinkedList() : head(nullptr) {}
+		LinkedList() : p_head(nullptr) {}
 
 		// Destructor
 		~LinkedList()
 		{
 			// Delete all nodes to avoid memory leaks
-			while (head != nullptr)
+			while (p_head != nullptr)
 			{
-				const Node* temp = head;
-				head = head->next;
+				const Node* temp = p_head;
+				p_head = p_head->p_next;
 				delete temp;
 			}
 		}
 
 		// Check if the list is empty
 		// Returns: true if the list is empty, false otherwise.
-		bool isEmpty() const
+		bool is_empty() const
 		{
-			return head == nullptr;
+			return p_head == nullptr;
 		}
 
 		// Insert a node at the beginning of the list
 		// Parameters:
-		//   value: The data to be inserted.
-		void insertAtBeginning(const T& value)
+		//   value: The p_data to be inserted.
+		void insert_at_beginning(const T& value)
 		{
-			Node* newNode = new Node(value);
-			newNode->next = head;
-			head = newNode;
+			Node* p_new_node = new Node(value);
+			p_new_node->p_next = p_head;
+			p_head = p_new_node;
 		}
 
 		// Insert a node at the end of the list
 		// Parameters:
-		//   value: The data to be inserted.
-		void insertAtEnd(const T& value)
+		//   value: The p_data to be inserted.
+		void insert_at_end(const T& value)
 		{
 			// If the list is empty, inserting at the beginning would suffice
-			if (isEmpty())
+			if (is_empty())
 			{
-				insertAtBeginning(value);
+				insert_at_beginning(value);
 				return;
 			}
 
 			// Traverse to the end of the list and insert the new node
-			Node* newNode = new Node(value);
-			Node* current = head;
-			while (current->next != nullptr)
+			Node* p_new_node = new Node(value);
+			Node* p_current = p_head;
+			while (p_current->p_next != nullptr)
 			{
-				current = current->next;
+				p_current = p_current->p_next;
 			}
-			current->next = newNode;
+			p_current->p_next = p_new_node;
 		}
 
 		// Insert a node at a specified position in the list
 		// Parameters:
-		//   value: The data to be inserted.
-		//   position: The position at which the data should be inserted.
+		//   value: The p_data to be inserted.
+		//   position: The position at which the p_data should be inserted.
 		// Exception: Prints error message if position is invalid or out of range.
-		void insertAtPosition(const T& value, int position)
+		void insert_at_position(const T& value, int position)
 		{
 			if (position < 0)
 			{
@@ -109,16 +109,16 @@ namespace data_structures
 			// If position is 0, insert at the beginning
 			if (position == 0)
 			{
-				insertAtBeginning(value);
+				insert_at_beginning(value);
 				return;
 			}
 
 			// Traverse to the node before the specified position
 			Node* newNode = new Node(value);
-			Node* current = head;
+			Node* current = p_head;
 			for (int i = 0; i < position - 1 && current != nullptr; ++i)
 			{
-				current = current->next;
+				current = current->p_next;
 			}
 
 			// If position is out of range, print error message and return
@@ -130,8 +130,8 @@ namespace data_structures
 			}
 
 			// Insert the new node at the specified position
-			newNode->next = current->next;
-			current->next = newNode;
+			newNode->p_next = current->p_next;
+			current->p_next = newNode;
 		}
 
 		// Remove the first occurrence of a value from the list
@@ -140,39 +140,39 @@ namespace data_structures
 		// Exception: Prints error message if list is empty or value is not found.
 		void remove(const T& value)
 		{
-			if (isEmpty())
+			if (is_empty())
 			{
 				// List is empty, print error message and return
 				std::cerr << "List is empty\n";
 				return;
 			}
 
-			// If the value to remove is at the head, remove the head node
-			if (head->data == value)
+			// If the value to remove is at the p_head, remove the p_head node
+			if (p_head->data == value)
 			{
-				const Node* temp = head;
-				head = head->next;
+				const Node* temp = p_head;
+				p_head = p_head->p_next;
 				delete temp;
 				return;
 			}
 
 			// Traverse the list to find the node with the value to remove
-			Node* current = head;
-			while (current->next != nullptr && current->next->data != value)
+			Node* p_current = p_head;
+			while (p_current->p_next != nullptr && p_current->p_next->data != value)
 			{
-				current = current->next;
+				p_current = p_current->p_next;
 			}
 
 			// If value is not found, print error message and return
-			if (current->next == nullptr)
+			if (p_current->p_next == nullptr)
 			{
 				std::cerr << "Value not found\n";
 				return;
 			}
 
 			// Remove the node with the value
-			const Node* toDelete = current->next;
-			current->next = current->next->next;
+			const Node* toDelete = p_current->p_next;
+			p_current->p_next = p_current->p_next->p_next;
 			delete toDelete;
 		}
 
@@ -180,9 +180,9 @@ namespace data_structures
 		// Parameters:
 		//   position: The position of the node to be removed.
 		// Exception: Prints error message if list is empty or position is invalid or out of range.
-		void removeAtPosition(int position)
+		void remove_at_position(int position)
 		{
-			if (isEmpty())
+			if (is_empty())
 			{
 				// List is empty, print error message and return
 				std::cerr << "List is empty\n";
@@ -196,32 +196,32 @@ namespace data_structures
 				return;
 			}
 
-			// If position is 0, remove the head node
+			// If position is 0, remove the p_head node
 			if (position == 0)
 			{
-				const Node* temp = head;
-				head = head->next;
+				const Node* temp = p_head;
+				p_head = p_head->p_next;
 				delete temp;
 				return;
 			}
 
 			// Traverse to the node before the specified position
-			Node* current = head;
+			Node* current = p_head;
 			for (int i = 0; i < position - 1 && current != nullptr; ++i)
 			{
-				current = current->next;
+				current = current->p_next;
 			}
 
 			// If position is out of range, print error message and return
-			if (current == nullptr || current->next == nullptr)
+			if (current == nullptr || current->p_next == nullptr)
 			{
 				std::cerr << "Position out of range\n";
 				return;
 			}
 
 			// Remove the node at the specified position
-			const Node* toDelete = current->next;
-			current->next = current->next->next;
+			const Node* toDelete = current->p_next;
+			current->p_next = current->p_next->p_next;
 			delete toDelete;
 		}
 
@@ -230,11 +230,11 @@ namespace data_structures
 		int length() const
 		{
 			int len = 0;
-			Node* current = head;
+			Node* current = p_head;
 			while (current != nullptr)
 			{
 				len++;
-				current = current->next;
+				current = current->p_next;
 			}
 			return len;
 		}
@@ -242,32 +242,32 @@ namespace data_structures
 		// Display the list
 		void display() const
 		{
-			Node* current = head;
+			Node* current = p_head;
 			while (current != nullptr)
 			{
-				std::cout << current->data << " ";
-				current = current->next;
+				std::cout << current->p_data << " ";
+				current = current->p_next;
 			}
 			std::cout << "\n";
 		}
 
 		// Convert the list to a string
 		// Returns: A string representation of the list.
-		char* toString() const
+		char* to_string() const
 		{
 			constexpr int BUFFER_SIZE = 100; // Define a buffer size for the character array
 			char* result = new char[BUFFER_SIZE]; // Allocate memory for the result
 			result[0] = '\0'; // Initialize the result string as an empty string
 
-			Node* current = head;
+			Node* current = p_head;
 			while (current != nullptr)
 			{
-				char temp[BUFFER_SIZE] = { 0 }; // Temporary buffer for converting data to string
-				_itoa_s(current->data, temp, BUFFER_SIZE, 10); // Convert data to string (assuming integers)
+				char temp[BUFFER_SIZE] = { 0 }; // Temporary buffer for converting p_data to string
+				_itoa_s(current->data, temp, BUFFER_SIZE, 10); // Convert p_data to string (assuming integers)
 				strcat_s(result, BUFFER_SIZE, temp); // Concatenate temp to result
 				strcat_s(result, BUFFER_SIZE, " "); // Add space between elements
 
-				current = current->next;
+				current = current->p_next;
 			}
 
 			return result; // Return the result string

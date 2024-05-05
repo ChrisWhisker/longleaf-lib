@@ -3,18 +3,18 @@
 int main()
 {
 	// ********** DATA STRUCTURES **********
-	core::Tester::testArray();
-	core::Tester::testLinkedList();
-	core::Tester::testStack();
+	core::Tester::test_array();
+	core::Tester::test_linked_list();
+	core::Tester::test_stack();
 
 	// ********** SEARCH **********
-	core::Tester::testBinarySearch();
+	core::Tester::test_binary_search();
 
 	// ********** SORT **********
-	core::Tester::testMergeSort();
-	core::Tester::testQuickSort();
+	core::Tester::test_merge_sort();
+	core::Tester::test_quick_sort();
 
 	// ********** UTILS **********
-	core::Tester::testArrayUtils();
-	core::Tester::testStringUtils();
+	core::Tester::test_array_utils();
+	core::Tester::test_string_utils();
 }

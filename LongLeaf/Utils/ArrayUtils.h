@@ -16,7 +16,7 @@ namespace utils
 
 		When using this class, ensure that the array passed to its methods is properly
 		sized and not nullptr to avoid undefined behavior. Additionally, note that this
-		class is templated on both the data type and size of the array, providing flexibility
+		class is templated on both the p_data type and size of the array, providing flexibility
 		while maintaining type safety.
 	*/
 	template <typename T, size_t size>
@@ -98,7 +98,7 @@ namespace utils
 		//   arr: The C-style array to be searched.
 		//   value: The value to search for in the array.
 		// Returns: True if the value is found in the array, false otherwise.
-		static bool containsValue(const T(&arr)[size], const T& value)
+		static bool contains_value(const T(&arr)[size], const T& value)
 		{
 			for (const auto& element : arr)
 			{

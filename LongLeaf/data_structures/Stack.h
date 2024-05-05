@@ -6,17 +6,17 @@ namespace data_structures
 	/*
 		A stack implementation in C++ using an underlying dynamic array. The Stack
 		class provides functionality for creating and manipulating stacks of any
-		data type.
+		p_data type.
 
 		This class can be used in situations where a last-in, first-out (LIFO)
-		data structure is needed. It allows flexibility in storing and accessing
+		p_data structure is needed. It allows flexibility in storing and accessing
 		elements, while also providing efficient insertion and removal operations.
 
 		When using this class, it's important to note that manual memory management
 		is not required, as the Stack class internally manages memory through its
 		dependency on the Array class, which handles dynamic resizing and memory
 		allocation. However, users should exercise caution when accessing the
-		underlying data directly using the getData() method.
+		underlying p_data directly using the getData() method.
 	*/
 	template <typename T>
 	class Stack
@@ -32,9 +32,9 @@ namespace data_structures
 
 		// Check if the stack is empty
 		// Returns: True if the stack is empty, false otherwise.
-		bool isEmpty() const
+		bool is_empty() const
 		{
-			return elements.isEmpty();
+			return elements.is_empty();
 		}
 
 		// Push an element onto the stack
@@ -42,15 +42,15 @@ namespace data_structures
 		//   value: The value to be pushed onto the stack.
 		void push(const T& value)
 		{
-			elements.insert(elements.getSize(), value);
+			elements.insert(elements.get_size(), value);
 		}
 
 		// Pop an element from the stack
 		void pop()
 		{
-			if (!isEmpty())
+			if (!is_empty())
 			{
-				elements.removeAtPosition(elements.getSize() - 1);
+				elements.remove_at_position(elements.get_size() - 1);
 			}
 		}
 
@@ -59,15 +59,15 @@ namespace data_structures
 		// Exception: Asserts that the stack is not empty.
 		const T& top() const
 		{
-			assert(!isEmpty());
-			return elements[elements.getSize() - 1];
+			assert(!is_empty());
+			return elements[elements.get_size() - 1];
 		}
 
 		// Get the size of the stack
 		// Returns: The number of elements in the stack.
 		size_t size() const
 		{
-			return elements.getSize();
+			return elements.get_size();
 		}
 
 		// Clear the stack, removing all elements
@@ -76,9 +76,9 @@ namespace data_structures
 			elements.clear();
 		}
 
-		// Get a pointer to the underlying data (use with caution)
-		// Returns: A pointer to the underlying data array.
-		T* getData() const
+		// Get a pointer to the underlying p_data (use with caution)
+		// Returns: A pointer to the underlying p_data array.
+		T* get_data() const
 		{
 			return elements.getData();
 		}

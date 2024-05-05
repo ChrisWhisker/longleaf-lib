@@ -22,34 +22,34 @@ namespace data_structures
     class Array
     {
     private:
-        T* data; // pointer to dynamically allocated memory
+        T* p_data; // pointer to dynamically allocated memory
         size_t size; // size of the array
 
     public:
         // Constructors
 
         // Default constructor
-        Array() : data(nullptr), size(0)
+        Array() : p_data(nullptr), size(0)
         {
         }
 
         // Constructor with initial size
-        Array(size_t arraySize) : data(new T[arraySize]), size(arraySize)
+        Array(size_t arraySize) : p_data(new T[arraySize]), size(arraySize)
         {
             for (size_t i = 0; i < arraySize; ++i)
-                data[i] = T();
+                p_data[i] = T();
         }
 
         // Copy constructor
-        Array(const Array& other) : data(new T[other.size]), size(other.size)
+        Array(const Array& other) : p_data(new T[other.size]), size(other.size)
         {
-            std::copy(other.data, other.data + size, data);
+            std::copy(other.p_data, other.p_data + size, p_data);
         }
 
         // Destructor
         ~Array()
         {
-            delete[] data;
+            delete[] p_data;
         }
 
         // Assignment operator
@@ -60,7 +60,7 @@ namespace data_structures
         }
 
         // Get the size of the array
-        size_t getSize() const
+        inline size_t get_size() const
         {
             return size;
         }
@@ -70,7 +70,7 @@ namespace data_structures
         {
             if (index >= size)
                 throw std::out_of_range("Index out of range");
-            return data[index];
+            return p_data[index];
         }
 
         // Access element at index (read-write)
@@ -78,13 +78,13 @@ namespace data_structures
         {
             if (index >= size)
                 throw std::out_of_range("Index out of range");
-            return data[index];
+            return p_data[index];
         }
 
         // Fill the array with a given value
         void fill(T value)
         {
-            std::fill(data, data + size, value);
+            std::fill(p_data, p_data + size, value);
         }
 
         // Print the elements of the array
@@ -92,7 +92,7 @@ namespace data_structures
         {
             std::cout << "{";
             for (size_t i = 0; i < size; ++i)
-                std::cout << " [" << data[i] << "]";
+                std::cout << " [" << p_data[i] << "]";
             std::cout << " }\n";
         }
 
@@ -105,7 +105,7 @@ namespace data_structures
 
             // Copy elements up to the minimum of the old and new size
             size_t minSize = std::min(size, newSize);
-            std::copy(data, data + minSize, newData);
+            std::copy(p_data, p_data + minSize, newData);
 
             // Initialize new elements to default value for type T if size is increased
             if (newSize > size)
@@ -115,29 +115,29 @@ namespace data_structures
             }
 
             // Update array pointer and size
-            delete[] data;
-            data = newData;
+            delete[] p_data;
+            p_data = newData;
             size = newSize;
         }
 
         // Clear the contents of the array (set size to 0)
         void clear()
         {
-            delete[] data;
-            data = nullptr;
+            delete[] p_data;
+            p_data = nullptr;
             size = 0;
         }
 
         // Check if the array is empty
-        bool isEmpty() const
+        bool is_empty() const
         {
             return size == 0;
         }
 
-        // Get a pointer to the underlying data (use with caution)
-        T* getData() const
+        // Get a pointer to the underlying p_data (use with caution)
+        T* get_data() const
         {
-            return data;
+            return p_data;
         }
 
         // Reverse the elements of the array
@@ -147,7 +147,7 @@ namespace data_structures
             size_t right = size - 1;
             while (left < right)
             {
-                std::swap(data[left], data[right]);
+                std::swap(p_data[left], p_data[right]);
                 ++left;
                 --right;
             }
@@ -157,27 +157,27 @@ namespace data_structures
         // Returns -1 if not found
         int find(T value) const
         {
-            auto it = std::find(data, data + size, value);
-            if (it == data + size)
+            auto it = std::find(p_data, p_data + size, value);
+            if (it == p_data + size)
                 return -1;
             else
-                return static_cast<int>(it - data);
+                return static_cast<int>(it - p_data);
         }
 
         // Count the occurrences of a value in the array
         size_t count(T value) const
         {
-            return std::count(data, data + size, value);
+            return std::count(p_data, p_data + size, value);
         }
 
         // Remove the first occurrence of a value from the array
         void remove(T value)
         {
-            auto it = std::find(data, data + size, value);
-            if (it != data + size)
+            auto it = std::find(p_data, p_data + size, value);
+            if (it != p_data + size)
             {
                 // Shift elements to cover the removed element
-                std::copy(it + 1, data + size, it);
+                std::copy(it + 1, p_data + size, it);
 
                 // Resize the array to remove the last element
                 resize(size - 1);
@@ -185,13 +185,13 @@ namespace data_structures
         }
 
         // Remove the element at the specified position
-        void removeAtPosition(int position)
+        void remove_at_position(int position)
         {
             if (position < 0 || static_cast<size_t>(position) >= size)
                 throw std::out_of_range("Position out of range");
 
             // Shift elements to cover the removed element
-            std::copy(data + position + 1, data + size, data + position);
+            std::copy(p_data + position + 1, p_data + size, p_data + position);
 
             // Resize the array to remove the last element
             resize(size - 1);
@@ -202,15 +202,15 @@ namespace data_structures
         {
             assert(index <= size);
             resize(size + 1);
-            std::copy_backward(data + index, data + size - 1, data + size);
-            data[index] = value;
+            std::copy_backward(p_data + index, p_data + size - 1, p_data + size);
+            p_data[index] = value;
         }
 
         // Swap contents with another array
         friend void swap(Array& first, Array& second) noexcept
         {
             using std::swap;
-            swap(first.data, second.data);
+            swap(first.p_data, second.p_data);
             swap(first.size, second.size);
         }
 
@@ -224,7 +224,7 @@ namespace data_structures
             // Compare each element
             for (size_t i = 0; i < size; ++i)
             {
-                if (data[i] != other.data[i])
+                if (p_data[i] != other.p_data[i])
                     return false;
             }
 

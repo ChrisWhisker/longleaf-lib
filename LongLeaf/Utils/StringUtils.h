@@ -55,12 +55,12 @@ namespace utils
 		// Convert C-style string to uppercase
 		// Parameters:
 		//   str: The null-terminated C-style string to be converted to uppercase.
-		static void toUpper(char* str);
+		static void to_upper(char* str);
 
 		// Convert C-style string to lowercase
 		// Parameters:
 		//   str: The null-terminated C-style string to be converted to lowercase.
-		static void toLower(char* str);
+		static void to_lower(char* str);
 
 		// Find the first occurrence of a character in a C-style string
 		// Parameters:
@@ -68,7 +68,7 @@ namespace utils
 		//   ch: The character to search for in the string.
 		// Returns: A pointer to the first occurrence of the character in the string,
 		//		  or nullptr if the input string is nullptr.
-		static const char* findChar(const char* str, char ch);
+		static const char* find_char(const char* str, char ch);
 
 		// Find the last occurrence of a character in a C-style string
 		// Parameters:
@@ -76,7 +76,7 @@ namespace utils
 		//   ch: The character to search for in the string.
 		// Returns: A pointer to the last occurrence of the character in the string,
 		//		  or nullptr if the input string is nullptr.
-		static const char* findLastChar(const char* str, char ch);
+		static const char* find_last_char(const char* str, char ch);
 
 		// Copy a portion of a C-style string
 		// Parameters:
