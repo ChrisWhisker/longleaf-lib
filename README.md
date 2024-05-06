@@ -14,20 +14,20 @@ The purpose of this repository is twofold:
 
 ## Classes
 
-- Data Structures
+### Data Structures
   - [Array](/LongLeaf/data_structures/Array.h)
   - [Linked list](/LongLeaf/data_structures/LinkedList.h)
   - [Stack](/LongLeaf/data_structures/Stack.hh)
-- Algorithms
+### Algorithms
   - Searching
     - [Binary search](/LongLeaf/search/BinarySearch.h)
   - Sorting
     - [Merge sort](/LongLeaf/sort/MergeSort.h)
     - [Quick sort](/LongLeaf/sort/QuickSort.h)
-- Utilities
+### Utilities (static functions for C-style array and string management)
   - [Array Utils](/LongLeaf/utils/ArrayUtils.h)
   - [String Utils](/LongLeaf/utils/StringUtils.h)
-- Design Patterns
+### Design Patterns
   - [Strategy pattern](/LongLeaf/design_patterns/Strategy.h)
 
 ## Key Features
