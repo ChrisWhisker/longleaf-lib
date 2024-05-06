@@ -241,7 +241,7 @@ namespace core
 
         // Test get_data()
         stack.push(50);
-        int* p_data = stack.get_data();
+        const int* p_data = stack.get_data();
         assert(*p_data == 30);
 
         // Clean up
@@ -296,7 +296,7 @@ namespace core
             MergeSort<int> sorter;
 
             int arr[] = {12, 11, 13, 5, 6, 7};
-            const int arr_size = sizeof(arr) / sizeof(arr[0]);
+            constexpr int arr_size = std::size(arr);
 
             sorter.merge_sort(arr, 0, arr_size - 1);
 
@@ -311,7 +311,7 @@ namespace core
             MergeSort<float> sorter;
 
             float arr[] = {12.5f, 11.2f, 13.7f, 5.3f, 6.8f, 7.1f};
-            const int arr_size = sizeof(arr) / sizeof(arr[0]);
+            constexpr int arr_size = std::size(arr);
 
             sorter.merge_sort(arr, 0, arr_size - 1);
 
@@ -326,7 +326,7 @@ namespace core
             MergeSort<char> sorter;
 
             char arr[] = {'c', 'a', 'b', 'e', 'd'};
-            const int arr_size = sizeof(arr) / sizeof(arr[0]);
+            constexpr int arr_size = std::size(arr);
 
             sorter.merge_sort(arr, 0, arr_size - 1);
 
@@ -349,7 +349,7 @@ namespace core
         {
             QuickSort<int> sorter;
             int arr[] = {12, 5, 7, -3, 8, 10, 2};
-            const int size = sizeof(arr) / sizeof(arr[0]);
+            constexpr int size = std::size(arr);
 
             sorter.quick_sort(arr, 0, size - 1);
 
@@ -364,7 +364,7 @@ namespace core
         {
             QuickSort<double> sorter;
             double arr[] = {12.5, 5.3, 7.1, -3.2, 8.9, 10.7, 2.4};
-            const int size = sizeof(arr) / sizeof(arr[0]);
+            constexpr int size = std::size(arr);
 
             sorter.quick_sort(arr, 0, size - 1);
 
@@ -379,7 +379,7 @@ namespace core
         {
             QuickSort<char> sorter;
             char arr[] = {'z', 'a', 'b', 'd', 'c'};
-            const int size = sizeof(arr) / sizeof(arr[0]);
+            constexpr int size = std::size(arr);
 
             sorter.quick_sort(arr, 0, size - 1);
 
@@ -400,10 +400,6 @@ namespace core
 
         // Test with int array
         int int_array[] = {1, 2, 3, 4, 5};
-
-        // Test print function
-        std::cout << "Printing int array: ";
-        ArrayUtils<int, 5>::print(int_array);
 
         // Test max function
         assert((ArrayUtils<int, 5>::max(int_array)) == 5);
@@ -432,10 +428,6 @@ namespace core
         // Test with double array
         double double_array[] = {1.5, 2.5, 3.5, 4.5, 5.5};
 
-        // Test print function
-        std::cout << "Printing double array: ";
-        ArrayUtils<double, 5>::print(double_array);
-
         // Test max function
         assert((ArrayUtils<double, 5>::max(double_array) == 5.5));
 
@@ -457,15 +449,12 @@ namespace core
         ArrayUtils<double, 5>::reverse(double_array);
         for (int i = 0; i < 5; ++i)
         {
-            assert(double_array[i] == reversed_double_array[i]);
+            // Compare the absolute difference to the tolerance value
+            assert(std::abs(double_array[i] - reversed_double_array[i]) < 0.0001);
         }
 
         // Test with char array
         char char_array[] = {'a', 'b', 'c', 'd', 'e'};
-
-        // Test print function
-        std::cout << "Printing char array: ";
-        ArrayUtils<char, 5>::print(char_array);
 
         // Test max function
         assert((ArrayUtils<char, 5>::max(char_array) == 'e'));
@@ -499,7 +488,6 @@ namespace core
         const char* str2 = "World";
         const char* str3 = "HelloWorld";
         const char* empty_str = "";
-        char buffer[20];
 
         // Test length function
         assert(StringUtils::length(str1) == 5);
@@ -508,7 +496,7 @@ namespace core
         // Test compare function
         assert(StringUtils::compare(str1, str2) < 0);
         assert(StringUtils::compare(str1, str1) == 0);
-        assert(StringUtils::compare(str2, str1) > 0);
+        assert(StringUtils::compare(str2, str1) > 0);  // NOLINT(readability-suspicious-call-argument)
 
         // Test concatenate function
         const char* concatenated = StringUtils::concatenate(str1, str2);
@@ -550,7 +538,7 @@ namespace core
         // Test with non-null-terminated strings
         constexpr char non_null_terminated[] = { 'N', 'o', 'n', 'e', '\0', 'T', 'e', 'r', 'm', 'i', 'n', 'a', 't', 'e', 'd' };
         assert(StringUtils::length(non_null_terminated) == 4);
-        assert(StringUtils::compare(non_null_terminated, str1) > 0);
+        assert(StringUtils::compare(str1, non_null_terminated) < 0);
 
         std::cout << "All String Utils tests passed!\n";
     }

@@ -268,9 +268,9 @@ namespace data_structures
             while (current != nullptr)
             {
                 std::stringstream ss;
-                ss << current->data; // Stream data into stringstream
+                ss << current->data; // Stream data into stream
 
-                // Append stringstream content to result
+                // Append stream content to result
                 strcat_s(result, BUFFER_SIZE, ss.str().c_str());
                 strcat_s(result, BUFFER_SIZE, " ");
 

@@ -45,10 +45,10 @@ namespace search
                 int mid = left + (right - left) / 2; // Calculate the middle index
 
                 // Check if the target is present at the middle
-                if (arr[mid] == target)
+                if (std::abs(arr[mid] - target) < 0.0001)
                 {
                     // Handle duplicate values by returning the first occurrence
-                    while (mid > 0 && arr[mid - 1] == target)
+                    while (mid > 0 && std::abs(arr[mid - 1] - target) < 0.0001)
                         mid--;
                     return mid; // Return the index if target is found
                 }
@@ -57,7 +57,7 @@ namespace search
                 if (arr[mid] < target)
                     left = mid + 1; // Update left pointer to mid + 1
 
-                    // If target is smaller than the middle element, ignore right half
+                // If target is smaller than the middle element, ignore right half
                 else
                     right = mid - 1; // Update right pointer to mid - 1
             }

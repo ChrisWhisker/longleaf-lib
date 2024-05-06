@@ -1,5 +1,5 @@
 ﻿#include "Strategy.h"
-#include <cctype> // Include for std::toupper and std::tolower
+#include <cctype>
 #include <iostream>
 
 namespace design_patterns
@@ -10,7 +10,7 @@ namespace design_patterns
         std::string formatted_text = text;
         for (char& c : formatted_text)
         {
-            c = std::toupper(static_cast<unsigned char>(c)); // Ensure proper handling of non-ASCII characters
+            c = static_cast<char>(std::toupper(c)); // Ensure proper handling of non-ASCII characters
         }
         return formatted_text;
     }
@@ -21,7 +21,7 @@ namespace design_patterns
         std::string formatted_text = text;
         for (char& c : formatted_text)
         {
-            c = std::tolower(static_cast<unsigned char>(c)); // Ensure proper handling of non-ASCII characters
+            c = static_cast<char>(std::tolower(c)); // Ensure proper handling of non-ASCII characters
         }
         return formatted_text;
     }

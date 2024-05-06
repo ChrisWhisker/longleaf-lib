@@ -102,7 +102,7 @@ namespace utils
         {
             for (const auto& element : arr)
             {
-                if (element == value)
+                if (std::abs(element - value) < 0.0001)
                 {
                     return true;
                 }

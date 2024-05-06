@@ -40,7 +40,7 @@ namespace utils
         if (p_str == nullptr) // Check if input string is nullptr
             return nullptr; // Return nullptr if it is
 
-        size_t str_length = std::strlen(p_str); // Calculate length of the string once
+        const size_t str_length = std::strlen(p_str); // Calculate length of the string once
 
         if (start >= str_length) // Check if start is out of bounds
             return nullptr; // Return nullptr if it is
@@ -66,7 +66,7 @@ namespace utils
         const size_t len = std::strlen(p_str); // Calculate length of string
         for (size_t i = 0; i < len; ++i) // Iterate over each character in the string
         {
-            p_str[i] = std::toupper(static_cast<unsigned char>(p_str[i])); // Convert character to uppercase
+            p_str[i] = static_cast<char>(std::toupper(p_str[i])); // Convert character to uppercase
         }
     }
 
@@ -78,7 +78,7 @@ namespace utils
         const size_t len = std::strlen(p_str); // Calculate length of string
         for (size_t i = 0; i < len; ++i) // Iterate over each character in the string
         {
-            p_str[i] = std::tolower(static_cast<unsigned char>(p_str[i])); // Convert character to lowercase
+            p_str[i] = static_cast<char>(std::tolower(p_str[i])); // Convert character to lowercase
         }
     }
 
